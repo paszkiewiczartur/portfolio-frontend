@@ -1,0 +1,26 @@
+<div class="row">
+    <div *ngIf="(authState | async).authenticated">
+        <button class="btn btn-lg btn-warning" (click)="signinEdit=!signinEdit">Edit Signin (toggle):</button>
+    </div>
+    <div *ngIf="!signinEdit" class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <form (ngSubmit)="onSignin(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-control" ngModel/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" ngModel/>
+            </div>
+            <button class="btn btn-success" type="submit" (click)="sendLoginLinkEntrance()">Sign In</button>
+        </form>    
+        <div *ngIf="(authState | async).signinFail" >
+            Wrong username or password!
+        </div>
+    </div>
+    <div *ngIf="signinEdit">
+        <app-edit-links [entityId]="1" [dataType]="'Signin'"></app-edit-links>
+    </div>
+
+</div>
+

@@ -1,0 +1,20 @@
+.hide-text {
+  overflow: hidden;
+  padding: 0;
+  text-indent: 101%;
+  white-space: nowrap;
+}
+.pointer{
+    cursor: pointer;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.hidden{
+    visibility: hidden;
+}
+.inline{
+    display:inline;
+}

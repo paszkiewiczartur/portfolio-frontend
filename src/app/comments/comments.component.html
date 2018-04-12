@@ -1,0 +1,10 @@
+<div *ngIf="(commentsState | async).comments" class="comment">
+    <h3 i18n="@@comments">Comments:</h3>
+    <ul>
+        <li *ngFor="let comment of (commentsState | async).comments">
+            <app-comment [node]="comment" [treeDepth]="1"></app-comment>
+        </li>
+    </ul>
+    <h2 i18n="@@leaveComment">Leave a comment:</h2>
+    <app-leave-comment></app-leave-comment>
+</div>

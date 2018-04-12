@@ -1,0 +1,37 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-3">
+        <div *ngIf="(authState | async).authenticated">
+            <button class="btn btn-lg btn-warning" (click)="menuEdit=!menuEdit">Edit Menu (toggle):</button>
+        </div>
+        <div *ngIf="!menuEdit" class="content-menu border-effect">
+            <span class="content-menu-header">
+                <span i18n="@@coursesList">Courses list</span>
+                <span class="glyphicon glyphicon-triangle-bottom content-menu-glyphicon pull-right"></span>
+            </span>
+            <ul class="corner-menu">
+                <li *ngFor="let course of (coursesState | async).courses" class="content-menu-li">
+                    <a [routerLink]="[course.path]">
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                        {{course.name}} 
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="menuEdit">
+            <ul *ngIf="courses">
+                <li *ngFor="let course of courses | sortEntity; let i=index">
+                    {{course.name}} |s: {{course.sequence}} | i: {{i}}
+                    <span *ngIf="courses.length -1 != i" class="glyphicon glyphicon-menu-down" (click)="entityDown(i)"></span>
+                    <span *ngIf="i != 0" class="glyphicon glyphicon-menu-up" (click)="entityUp(i)"></span>
+                </li>
+            </ul>
+            <br>
+            <button class="btn btn-md btn-primary" (click)="save()">Save Order</button>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+</div>

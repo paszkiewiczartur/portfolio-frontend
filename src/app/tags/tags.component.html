@@ -1,0 +1,36 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+<!--
+        <ul class="snip1412">
+            <div style="background-color: yellow">
+            <li *ngFor="let tag of (tagsState | async).tags" style="border: 2px solid navy;">
+                    <a [routerLink]="[tag.path]">{{ tag.name }}
+                        <span class="badge">{{ tag.amount }}</span></a>
+            </li>
+            </div>
+        </ul>    
+-->
+<!--
+        <ul class="labels">
+            <li *ngFor="let tag of (tagsState | async).tags" class="label" [ngClass]="setClasses(tag.amount)">
+                    <a [routerLink]="[tag.path]" class="slide-effect">{{ tag.name }}
+                        <span class="badge">{{ tag.amount }}</span></a>
+            </li>
+        </ul>    
+-->
+        <div class="labels">
+            <span *ngFor="let tag of (tagsState | async).tags">
+                <span class="label" [ngClass]="setClasses(tag.amount)">
+                    <a [routerLink]="[tag.path]">{{ tag.name }}
+                        <span class="badge">{{ tag.amount }}</span></a>
+                </span>
+            </span>
+        </div>    
+        <div class="clearfix"></div>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+</div>

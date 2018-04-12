@@ -1,0 +1,18 @@
+.box{
+    max-height: 300px;
+    overflow-y: auto;
+}
+.comment-sent, .tag-sent, .message-sent{
+    position: relative;
+    top: -200px;
+    background-color: $beige;
+    border: solid 5px $navy;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 2em;
+    margin: auto;
+    padding: 40px;
+    z-index: 100;
+    max-width: 500px;
+    height: 100px;
+}

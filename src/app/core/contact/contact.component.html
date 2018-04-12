@@ -1,0 +1,54 @@
+<div class="container">
+
+<div class="btn-group btn-breadcrumb">
+    <a class="btn btn-default" routerLink="/">
+        <i class="glyphicon glyphicon-home"></i> <span i18n="@@home">Home</span>
+    </a>
+    <a class="btn btn-default" i18n="@@contact">Contact</a>
+</div>
+<div *ngIf="(authState | async).authenticated">
+    <button class="btn btn-lg btn-warning" (click)="contactEdit=!contactEdit">Edit Contact (toggle):</button>
+</div>
+<div *ngIf="!contactEdit" class="row">
+    <div class="col-md-6">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="email">
+                    <span i18n="@@email">Email</span> (<span i18n="@@optional">optional</span>)
+                </label>
+                <input type="text" id="email" name="email" class="form-control" ngModel/>
+            </div>
+            <div class="form-group">
+                <label for="credentials" i18n="@@firstLastName">First name and last name</label>
+                <input type="text" id="credentials" name="credentials" class="form-control" ngModel/>
+            </div>
+            <div class="form-group">
+                <label for="content" i18n="@@content">Content</label>
+                <textarea id="content" name="content" class="form-control" ngModel appTextareaResize></textarea>
+            </div>
+            <button class="btn btn-md btn-send" type="submit" [disabled]="messageSent" i18n="@@sendMessage">
+                Send Message
+            </button>
+        </form>    
+    </div>    
+    <div class="col-md-6">
+        <div class="site-content-box text-center">
+            <div *ngIf="(mainState | async).contact">
+                <div *ngIf="isPolish(); else english">
+                   <div [innerHTML]="(mainState | async).contact.descriptionPl | safeHTML"></div>                    
+                </div>
+                <ng-template #english>
+                    <div [innerHTML]="(mainState | async).contact.descriptionEn | safeHTML"></div>
+                </ng-template>
+            </div>
+        </div>
+    </div>    
+</div>
+<div *ngIf="contactEdit">
+    <app-edit-site-content [dataType]="'Contact'"></app-edit-site-content>
+    <app-edit-links [entityId]="1" [dataType]="'Contact'"></app-edit-links>
+</div>
+<div *ngIf="messageSent" class="message-sent">
+    <span i18n="@@messageSent">Your message has been sent</span>!
+</div>
+</div>

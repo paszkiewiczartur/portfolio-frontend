@@ -1,0 +1,9 @@
+.btn-send{
+    background-color: $dark-grey;
+    color: $text-color;
+    
+    &:hover, &:focus{
+        background-color: darken($dark-grey, 10%);
+        color: $beige !important;
+    }
+}

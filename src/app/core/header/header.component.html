@@ -1,0 +1,63 @@
+<nav class="navbar navbar-color">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed hamburger" (click)="isCollapsed=!isCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a routerLink="/" class="navbar-brand" id="logo" (click)="isCollapsed = true">
+                <img id="logo-img" src="/files/favicon3.gif"/>                
+            </a>
+        </div>
+        
+        <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+            <ul class="nav navbar-nav navbar-right nav-menu">
+                <li routerLinkActive="site-active" [routerLinkActiveOptions]="{exact: true}" (click)="isCollapsed = true">
+                    <a routerLink="/" i18n="@@home">Home</a>
+                </li>
+                <li routerLinkActive="site-active" (click)="isCollapsed = true">
+                    <a routerLink="/about-me" i18n="@@aboutMe">About me</a>
+                </li>
+                <li routerLinkActive="site-active" (click)="isCollapsed = true">
+                    <a routerLink="/projects" i18n="@@projects">Projects</a>
+                </li>
+                <li routerLinkActive="site-active" (click)="isCollapsed = true">
+                    <a routerLink="/courses" i18n="@@courses">Courses</a>
+                </li>
+                <li routerLinkActive="site-active" (click)="isCollapsed = true">
+                    <a routerLink="/books" i18n="@@books">Books</a>
+                </li>
+                <li routerLinkActive="site-active" (click)="isCollapsed = true">
+                    <a routerLink="tags" i18n="@@tags">Tags</a>
+                </li>
+                <li routerLinkActive="site-active" (click)="isCollapsed = true">
+                    <a routerLink="/contact" i18n="@@contact">Contact</a></li>
+                <li><a routerLink="/signin">Signin</a></li>
+                <li routerLinkActive="site-active">
+                    <a class="search-box">
+                        <form>
+                            <input #searchTextInput type="search" class="form-control" class="search"/>
+                            <button (click)="search()" type="submit" class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-search"></span> 
+                                <span i18n="@@search">Search</span> 
+                                <span routerLink="/search"></span>
+                            </button>
+                        </form>
+                    </a>
+                </li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a (click)="onLogout()" *ngIf="(authState | async).authenticated" i18n="@@logout">Logout</a>
+                </li>
+                <li>
+                    <a routerLink="/upload" *ngIf="(authState | async).authenticated">Upload</a>
+                </li>                
+            </ul>
+
+        </div>
+    </div>
+</nav>

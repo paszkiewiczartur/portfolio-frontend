@@ -1,0 +1,56 @@
+.tag-entity-header{
+    display:block;
+    font-size: 2em;
+}
+.labels {
+    .label {
+	    font-weight: normal;
+        display: block; float: left;
+	    margin: 7px 2px 3px;
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
+        border: 1px solid transparent;
+    }
+    
+    .label-dark {
+	    font-size: 1.9em;
+        background-color: $dark-grey;
+        
+        &:hover{
+            background: linear-gradient(to right, transparentize($dark-grey, 0.9), transparentize($dark-grey, 0.2));
+            border: 1px solid $dark-grey;
+        }
+        
+        a{
+            color: white;
+        }
+    }
+    
+    .label-mid {
+        font-size: 1.4em;
+        background-color: $mid-grey;
+
+        &:hover{
+            background: linear-gradient(to right, transparentize($mid-grey, 0.9), transparentize($mid-grey, 0.2));
+            border: 1px solid $mid-grey;
+        }
+        
+        a{
+            color: white;
+        }
+    }
+    
+    .label-light {
+        font-size: 0.9em;
+        background-color: $light-grey;
+        
+        &:hover{
+            background: linear-gradient(to right, transparentize($light-grey, 0.9), transparentize($light-grey, 0.2));
+            border: 1px solid $light-grey;
+        }
+
+        a{
+            color: $navy;
+        }
+    }
+}

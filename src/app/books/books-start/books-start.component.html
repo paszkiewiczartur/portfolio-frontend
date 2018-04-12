@@ -1,0 +1,21 @@
+<div class="btn-group btn-breadcrumb">
+    <a class="btn btn-default" routerLink="/"><i class="glyphicon glyphicon-home"></i> <span i18n="@@home">Home</span></a>
+    <a class="btn btn-default" routerLink="/books"><span i18n="@@books">Books</span></a>
+</div>
+<div *ngIf="!(authState | async).authenticated">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="entity-start-img" src="{{ book1 }}" alt="First book's cover"/>
+        </div>
+        <div class="col-md-4">
+            <img class="entity-start-img" src="{{ book2 }}" alt="Second book's cover"/>
+        </div>
+        <div class="col-md-4">
+            <img class="entity-start-img" src="{{ book3 }}" alt="Third book's cover"/>
+        </div>
+    </div>
+</div>
+<div *ngIf="(authState | async).authenticated">
+    <button class="btn btn-lg btn-warning" (click)="bookEdit=!bookEdit">Add new Book (toggle):</button>
+    <app-book-edit *ngIf="bookEdit"></app-book-edit>
+</div>

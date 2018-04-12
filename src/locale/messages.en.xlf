@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="home" datatype="html">
+        <source>Home</source>
+        <target>Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tags-start/tags-start.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/about/about.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/contact/contact.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/search/search.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/single-comment/single-comment.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/projects-start/projects-start.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tag/tag.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/courses-start/courses-start.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/books-start/books-start.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutMe" datatype="html">
+        <source>About me</source>
+        <target>About me</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/about/about.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects" datatype="html">
+        <source>Projects</source>
+        <target>Projects</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/projects-start/projects-start.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tag/tag.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="courses" datatype="html">
+        <source>Courses</source>
+        <target>Courses</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tag/tag.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/courses-start/courses-start.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="books" datatype="html">
+        <source>Books</source>
+        <target>Books</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tag/tag.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/books-start/books-start.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tags" datatype="html">
+        <source>Tags</source>
+        <target>Tags</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tags-start/tags-start.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tag/tag.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contact" datatype="html">
+        <source>Contact</source>
+        <target>Contact</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/contact/contact.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="search" datatype="html">
+        <source>Search</source>
+        <target>Search</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/search/search.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/search/search.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logout" datatype="html">
+        <source>Logout</source>
+        <target>Logout</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="comments" datatype="html">
+        <source>Comments:</source>
+        <target>Comments:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/comments.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/single-comment/single-comment.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leaveComment" datatype="html">
+        <source>Leave a comment:</source>
+        <target>Leave a comment:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/comments.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/comment/comment.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="author" datatype="html">
+        <source>Author</source>
+        <target>Author</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/comment/comment.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/single-comment/single-comment.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="posted" datatype="html">
+        <source>Posted</source>
+        <target>Posted</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/comment/comment.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/single-comment/single-comment.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="email" datatype="html">
+        <source>Email</source>
+        <target>Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/leave-comment/leave-comment.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/contact/contact.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="optional" datatype="html">
+        <source>optional</source>
+        <target>optional</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/leave-comment/leave-comment.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/contact/contact.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="emailWontShown" datatype="html">
+        <source>email won&apos;t be shown on the page</source>
+        <target>email targetwon&apos;t be shown on the page</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/leave-comment/leave-comment.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="emailPattern" datatype="html">
+        <source>
+                This input must have email pattern
+            </source>
+        <target>This input must have email pattern</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/leave-comment/leave-comment.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nickname" datatype="html">
+        <source>Nickname:</source>
+        <target>Nickname:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/leave-comment/leave-comment.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="required" datatype="html">
+        <source>
+                This is required
+            </source>
+        <target>This is required</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/leave-comment/leave-comment.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/leave-comment/leave-comment.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="content" datatype="html">
+        <source>Content:</source>
+        <target>Content:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/leave-comment/leave-comment.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/contact/contact.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sendComment" datatype="html">
+        <source>
+                Send Comment
+        </source>
+        <target>Send Comment</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/leave-comment/leave-comment.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="commentPosted" datatype="html">
+        <source>Your comment has been posted</source>
+        <target>Your comment has been posted</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/leave-comment/leave-comment.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="lookingforDev" datatype="html">
+        <source>Looking for a developer?</source>
+        <target>Looking for a developer?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/home/home.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="visitGithub" datatype="html">
+        <source>Visit my Github</source>
+        <target>Visit my Github</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/about/about.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="downloadCV" datatype="html">
+        <source>Download my CV</source>
+        <target>Download my CV</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/about/about.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="firstLastName" datatype="html">
+        <source>First name and last name</source>
+        <target>First name and last name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/contact/contact.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sendMessage" datatype="html">
+        <source>
+                Send Message
+            </source>
+        <target>Send Message</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/contact/contact.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="messageSent" datatype="html">
+        <source>Your message has been sent</source>
+        <target>Your message has been sent</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/contact/contact.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="textNotEmpty" datatype="html">
+        <source>Searched text cannot be empty</source>
+        <target>Searched text cannot be empty</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/search/search.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="textNotWhitespaces" datatype="html">
+        <source>Searched text cannot consist only whitespaces</source>
+        <target>Searched text cannot consist only whitespaces</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/search/search.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="resultsForPhrase" datatype="html">
+        <source>Results for phrase</source>
+        <target>Results for phrase</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/search/search.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="goTo" datatype="html">
+        <source>Go to</source>
+        <target>Go to</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/single-comment/single-comment.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="commentNotFound" datatype="html">
+        <source>Seeking comment hasn&apos;t been found</source>
+        <target>Seeking comment hasn&apos;t been found</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/comments/single-comment/single-comment.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projectsList" datatype="html">
+        <source>Projects list</source>
+        <target>Projects list</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/projects.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="project" datatype="html">
+        <source>Project</source>
+        <target>Project</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="doesntExist" datatype="html">
+        <source>doesn&apos;t exist</source>
+        <target>doesn&apos;t exist</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tag/tag.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projectLink" datatype="html">
+        <source>Project link</source>
+        <target>Project link</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="githubLink" datatype="html">
+        <source>Github link</source>
+        <target>Github link</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="downloadLink" datatype="html">
+        <source>Download link</source>
+        <target>Download link</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="workStarted" datatype="html">
+        <source>Work Started</source>
+        <target>Work Started</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wmountWorkDays" datatype="html">
+        <source>Amount of work days</source>
+        <target>Amount of work days</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="lastUpdate" datatype="html">
+        <source>Last Update</source>
+        <target>Last Update</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/projects/project/project.component.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tag" datatype="html">
+        <source>Tag</source>
+        <target>Tag</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tag/tag.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="added" datatype="html">
+        <source>Added</source>
+        <target>Added</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tag/tag.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="amountOfResults" datatype="html">
+        <source>Amount of results</source>
+        <target>Amount of results</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/tags/tag/tag.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="coursesList" datatype="html">
+        <source>Courses list</source>
+        <target>Courses list</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/courses.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="course" datatype="html">
+        <source>Course</source>
+        <target>Course</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="link" datatype="html">
+        <source>Link</source>
+        <target>Link</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="courseLength" datatype="html">
+        <source>Course length</source>
+        <target>Course length</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="whenFinishedCourse" datatype="html">
+        <source>When I have finished a course</source>
+        <target>When I have finished a course</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="myrating" datatype="html">
+        <source>My rating</source>
+        <target>My rating</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course/course.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="booksList" datatype="html">
+        <source>Books list</source>
+        <target>Books list</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/books.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="book" datatype="html">
+        <source>Book</source>
+        <target>Book</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="numberOfPages" datatype="html">
+        <source>Number of pages</source>
+        <target>Number of pages</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="whenReadBook" datatype="html">
+        <source>When I have read a book</source>
+        <target>When I have read a book</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="myRating" datatype="html">
+        <source>My rating</source>
+        <target>My rating</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/books/book/book.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

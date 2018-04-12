@@ -1,0 +1,23 @@
+<div class="btn-group btn-breadcrumb">
+    <a class="btn btn-default" routerLink="/">
+        <i class="glyphicon glyphicon-home"></i> <span i18n="@@home">Home</span>
+    </a>
+    <a class="btn btn-default" i18n="@@tags">Tags</a>
+</div>
+<div *ngIf="!(authState | async).authenticated">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="entity-start-img" src="/assets/java-tag.png" alt="Java's logo"/>
+        </div>
+        <div class="col-md-4">
+            <img class="entity-start-img" src="/assets/angular-tag.png" alt="Angular's logo"/>
+        </div>
+        <div class="col-md-4">
+            <img class="entity-start-img" src="/assets/spring-tag.png" alt="Spring's logo"/>
+        </div>
+    </div>
+</div>
+<div *ngIf="(authState | async).authenticated">
+    <button class="btn btn-lg btn-warning" (click)="tagEdit=!tagEdit">Add new Tag (toggle):</button>
+    <app-tag-edit *ngIf="tagEdit"></app-tag-edit>
+</div>

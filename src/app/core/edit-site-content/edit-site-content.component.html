@@ -1,0 +1,29 @@
+<p>
+  edit-site-content works!
+</p>
+<div>
+    <h1 *ngIf="siteContent">Path: {{ siteContent.path }}</h1><br>
+    <form [formGroup]="siteContentForm">
+        <div class="form-group">
+            <label class="control-label" for="descriptionPl">DescriptionPl:</label><br>
+            <textarea class="form-control" id="descriptionPl" formControlName="descriptionPl"></textarea>
+            <span *ngIf="!siteContentForm.get('descriptionPl').valid && siteContentForm.get('descriptionPl').touched" class="help-block">
+                This is required!
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="descriptionEn">descriptionEn:</label><br>
+            <textarea class="form-control" id="descriptionEn" formControlName="descriptionEn"></textarea>
+            <span *ngIf="!siteContentForm.get('descriptionEn').valid && siteContentForm.get('descriptionEn').touched" class="help-block">
+                This is required!
+            </span>
+        </div>
+        <button type="button" class="btn btn-success" (click)="onSubmit()" [disabled]="!siteContentForm.valid">
+                Send SiteContent
+        </button>
+    </form>
+    <br>
+    <button *ngIf="siteContent" class="btn btn-md btn-danger" (click)="deleteSiteContent()">Delete SiteContent</button>
+    <hr>
+    <br><br>
+</div>

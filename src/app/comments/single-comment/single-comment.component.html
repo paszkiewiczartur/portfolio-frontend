@@ -1,0 +1,28 @@
+<div class="container">
+<div class="col-md-7">
+    <div class="btn-group btn-breadcrumb">
+        <a class="btn btn-default" routerLink="/">
+            <i class="glyphicon glyphicon-home"></i> <span i18n="@@home">Home</span>
+        </a>
+        <a class="btn btn-default" i18n="@@comments">Comments</a>
+    </div>
+    <div *ngIf="(commentsState | async).comment; else notFound" class="well comment">
+        <h2>
+            <span i18n="@@author">Author</span>: {{ (commentsState | async).comment.nickname }} <br>
+        </h2>
+        <span class="pull-right badge">
+            <span i18n="@@posted">Posted</span>: {{ (commentsState | async).comment.posted }}
+        </span><br>
+        <p class="paragraph-comment">
+            {{ (commentsState | async).comment.content }}
+        </p>
+        <br>
+        <br>
+        <span i18n="@@goTo">Go to</span> <span class="glyphicon glyphicon-arrow-right"></span> 
+        <a class="pointer" [routerLink]="[(commentsState | async).comment.path]">{{ (commentsState | async).comment.name }}</a>
+    </div>
+    <ng-template #notFound>
+        <span i18n="@@commentNotFound">Seeking comment hasn't been found</span>.
+    </ng-template>
+</div>
+</div>

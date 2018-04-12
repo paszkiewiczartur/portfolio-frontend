@@ -1,0 +1,23 @@
+<div class="btn-group btn-breadcrumb">
+    <a class="btn btn-default" routerLink="/">
+        <i class="glyphicon glyphicon-home"></i> <span i18n="@@home">Home</span>
+    </a>
+    <a class="btn btn-default" routerLink="/courses" i18n="@@courses">Courses</a>
+</div>
+<div *ngIf="!(authState | async).authenticated">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="entity-start-img" src="{{ course1 }}" alt="First course's image"/>
+        </div>
+        <div class="col-md-4">
+            <img class="entity-start-img" src="{{ course2 }}" alt="Second course's image"/>
+        </div>
+        <div class="col-md-4">
+            <img class="entity-start-img" src="{{ course3 }}" alt="Third course's image"/>
+        </div>
+    </div>
+</div>
+<div *ngIf="(authState | async).authenticated">
+    <button class="btn btn-lg btn-warning" (click)="courseEdit=!courseEdit">Add new Course (toggle):</button>
+    <app-course-edit *ngIf="courseEdit"></app-course-edit>
+</div>

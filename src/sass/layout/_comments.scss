@@ -1,0 +1,22 @@
+.comment {
+    margin-top: 20px;
+    
+    ul{
+        list-style-type: none;
+
+    }
+    
+    .paragraph-comment{
+        color: $navy;
+        text-indent: 40px;
+    }
+    
+    .leave-comment{
+        margin-top: 40px;
+    }
+    
+    .leave-comment-text{
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size: 1.3em;
+    }
+}

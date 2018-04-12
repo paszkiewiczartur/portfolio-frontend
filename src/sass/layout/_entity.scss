@@ -1,0 +1,52 @@
+.entity{
+    background-color: $mid-grey;
+    color: $text-color;
+    border: 5px solid $navy;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 25px;
+    color: $navy;
+    font-size: 1em;
+    font-family: Tahoma, Geneva, sans-serif;
+    
+    .panel{
+        margin-top: 50px;
+    }
+    
+    .panel-body{
+        color: black;
+    }
+    
+    p{
+        font-size: 1.2em;
+        color: white;
+        text-align: justify;
+        text-indent: 40px;
+    }
+    
+    .entity-additional{
+        font-size: 1.4em;
+    }
+    
+    h1{
+        font-weight: bold;
+    }
+    
+    h3{
+        font-family: Georgia, serif;        
+    }
+}
+.entity-link{
+    color: $beige;
+}
+.entity-image{
+    max-width: 90%;
+    max-height: 90%;
+}
+.entity-start-img{
+    min-width: 90%;
+    max-width: 90%;
+    max-height: 90%;
+    margin-bottom: 20px;
+    
+}

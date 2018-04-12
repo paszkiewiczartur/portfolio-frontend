@@ -1,0 +1,58 @@
+<div class="btn-group btn-breadcrumb">
+    <a class="btn btn-default" routerLink="/">
+        <i class="glyphicon glyphicon-home"></i> <span i18n="@@home">Home</span>
+    </a>
+    <a class="btn btn-default" routerLink="/tags" i18n="@@tags">Tags</a>
+    <a *ngIf="(tagsState | async).tag" class="btn btn-default">{{ (tagsState | async).tag.name }}</a>
+</div>
+<div *ngIf="(authState | async).authenticated">
+    <button class="btn btn-lg btn-warning" (click)="tagEdit=!tagEdit">Edit Tag (toggle):</button>
+</div>
+<div class="entity">
+<div *ngIf="!(tagsState | async).tag">
+    <span i18n="@@tag">Tag</span> {{ path }} <span i18n="@@doesntExist">doesn't exist</span>!<br>
+</div>
+<div *ngIf="!tagEdit && (tagsState | async).tag">
+    <div *ngIf="isPolish(); else english">
+        <h1>{{ (tagsState | async).tag.name}}</h1>
+    </div>
+    <ng-template #english>
+        <h1>{{ (tagsState | async).tag.nameEn}}</h1>
+    </ng-template>
+    <br>
+    <span i18n="@@added">Added</span>: <span class="badge">{{ (tagsState | async).tag.added}}</span><br><br>
+</div>
+<div *ngIf="!tagEdit && (tagsState | async).tagContent">
+    <h3>
+        <span i18n="@@amountOfResults">Amount of results</span>: {{ (tagsState | async).tag.amount}}
+    </h3><br>
+    <div *ngIf="(tagsState | async).tagContent.projects">
+        <div *ngIf="(tagsState | async).tagContent.projects.length">
+            <span class="tag-entity-header" i18n="@@projects">Projects:</span>
+        </div>
+        <div *ngFor="let project of (tagsState | async).tagContent.projects" class="well">
+            <a [routerLink]="['/projects', project.path]">{{project.name}}</a>
+        </div>  
+        <br>
+    </div>
+    <div *ngIf="(tagsState | async).tagContent.courses">
+        <div *ngIf="(tagsState | async).tagContent.courses.length">
+            <span class="tag-entity-header" i18n="@@courses">Courses:</span>
+        </div>
+        <div *ngFor="let course of (tagsState | async).tagContent.courses" class="well">
+            <a [routerLink]="['/courses', course.path]">{{course.name}}</a>
+        </div>  
+        <br>
+    </div>
+    <div *ngIf="(tagsState | async).tagContent.books">
+        <div *ngIf="(tagsState | async).tagContent.books.length">
+            <span class="tag-entity-header" i18n="@@books">Books:</span>
+        </div>
+        <div *ngFor="let book of (tagsState | async).tagContent.books" class="well">
+            <a [routerLink]="['/books', book.path]">{{book.name}}</a>
+        </div>  
+    </div>
+    <br>
+</div>
+<app-tag-edit *ngIf="tagEdit" [tag]="(tagsState | async).tag"></app-tag-edit>
+</div>

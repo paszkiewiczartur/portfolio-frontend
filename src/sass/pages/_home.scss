@@ -1,0 +1,25 @@
+.home-box{
+    padding: 10% 5%;
+    border: 5px solid $mid-grey;
+    border-radius: 10px 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    max-width: 90%;
+    background-color: desaturate($beige, 20%);
+}
+.home-img{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    max-height: 90%;
+    max-width: 90%;
+    border-radius: 10px;
+}
+.home-header{
+    font-size: 3.6em;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.home-body{
+    text-indent: 2em;
+    font-size: 1.8em;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}

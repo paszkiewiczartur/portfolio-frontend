@@ -1,0 +1,32 @@
+<div>
+    <form [formGroup]="commentForm">
+        <div class="form-group">
+            <label class="control-label" for="posted">Posted:</label><br>
+            <input class="form-control" id="posted" formControlName="posted"/>
+            <span *ngIf="!commentForm.get('posted').valid && commentForm.get('posted').touched" class="help-block">
+                This is required!
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="nickname">Nickname:</label><br>
+            <input class="form-control" id="nickname" formControlName="nickname"/>
+            <span *ngIf="!commentForm.get('nickname').valid && commentForm.get('nickname').touched" class="help-block">
+                This is required!
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="content">Content:</label><br>
+            <textarea class="form-control" id="content" formControlName="content"></textarea>
+            <span *ngIf="!commentForm.get('content').valid && commentForm.get('content').touched" class="help-block">
+                This is required!
+            </span>
+        </div>
+         <button type="button" class="btn btn-success" (click)="onSubmit()" [disabled]="!commentForm.valid">
+                Send Comment
+        </button>
+    </form>
+    <br>
+    <button class="btn btn-md btn-danger" (click)="deleteComment()">Delete Comment</button>
+    <hr>
+    <br><br>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+    <div class="btn-group btn-breadcrumb">
+        <a class="btn btn-default" routerLink="/">
+            <i class="glyphicon glyphicon-home"></i> <span i18n="@@home">Home</span>
+        </a>
+        <a class="btn btn-default" i18n="@@search">Search</a>
+    </div>
+    <br>
+    <input #searchTextInput class="form-control input-lg"/>
+    <span *ngIf="warningEmptyInput" class="help-block">
+        <span i18n="@@textNotEmpty">Searched text cannot be empty</span>.
+        </span>
+    <span *ngIf="warningOnlyWhiteSigns" class="help-block">
+        <span i18n="@@textNotWhitespaces">Searched text cannot consist only whitespaces</span>.
+    </span>
+    <br>
+    <button (click)="search()" class="btn btn-send btn-lg" i18n="@@search">Search</button>    
+    <br>
+    <br>
+    <h1>
+        <span i18n="@@resultsForPhrase">Results for phrase</span>: {{ searchText }}
+        (<span *ngIf="(mainState | async).searched"> {{ (mainState | async).searched.length }}</span> )
+    </h1><br>
+    <div class="well" *ngFor="let draft of (mainState | async).searched">
+        <a (click)="moveTo(draft.path)" class="pointer">{{ draft.name }}</a><br>
+        <div [innerHTML]="draft.content | safeHTML"></div>
+    </div>
+</div>
+</div>
+</div>

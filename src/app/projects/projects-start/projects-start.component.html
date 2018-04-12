@@ -1,0 +1,23 @@
+<div class="btn-group btn-breadcrumb">
+    <a class="btn btn-default" routerLink="/">
+        <i class="glyphicon glyphicon-home"></i> <span i18n="@@home">Home</span>
+    </a>
+    <a class="btn btn-default" i18n="@@projects">Projects</a>
+</div>
+<div *ngIf="!(authState | async).authenticated">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="entity-start-img" src="{{ project1 }}" alt="First project's image"/>
+        </div>
+        <div class="col-md-4">
+            <img class="entity-start-img" src="{{ project2 }}" alt="Second project's image"/>
+        </div>
+        <div class="col-md-4">
+            <img class="entity-start-img" src="{{ project3 }}" alt="Third project's image"/>
+        </div>
+    </div>
+</div>
+<div *ngIf="(authState | async).authenticated">
+    <button class="btn btn-lg btn-warning" (click)="projectEdit=!projectEdit">Add new Project (toggle):</button>
+    <app-project-edit *ngIf="projectEdit"></app-project-edit>
+</div>

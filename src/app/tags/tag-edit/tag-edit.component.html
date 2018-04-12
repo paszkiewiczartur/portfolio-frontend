@@ -1,0 +1,63 @@
+<div>
+    <form [formGroup]="tagForm">
+        <div class="form-group">
+            <label class="control-label" for="path">Tag path:</label><br>
+            <input class="form-control" id="path" formControlName="path"/>
+            <span *ngIf="!tagForm.get('path').valid && tagForm.get('path').touched" class="help-block">
+                This is required!
+            </span>
+        </div>    
+        <div class="form-group">
+            <label class="control-label" for="name">Name:</label><br>
+            <input class="form-control" id="name" formControlName="name"/>
+            <span *ngIf="!tagForm.get('name').valid && tagForm.get('name').touched" class="help-block">
+                This is required!
+            </span>
+        </div>    
+        <div class="form-group">
+            <label class="control-label" for="nameEn">NameEn:</label><br>
+            <input class="form-control" id="nameEn" formControlName="nameEn"/>
+            <span *ngIf="!tagForm.get('nameEn').valid && tagForm.get('nameEn').touched" class="help-block">
+                This is required!
+            </span>
+        </div>    
+        <div class="form-group">
+            <label class="control-label" for="amount">Amount (Optional):</label><br>
+            <input type="number" class="form-control" id="amount" formControlName="amount"/>
+        </div>    
+        <div class="form-group">
+            <label class="control-label" for="added">Added (Date | Optional):</label><br>
+            <input class="form-control" id="added" formControlName="added"/>
+        </div>    
+        
+        
+        <button type="button" class="btn btn-success" (click)="onSubmit()" [disabled]="!tagForm.valid">
+                Send Tag
+        </button>
+        
+        <span *ngIf="tag">
+            <button type="button" class="btn btn-danger" (click)="toggleDelete = !toggleDelete">
+                Delete Tag
+            </button>
+        </span>
+        <div *ngIf="toggleDelete">
+            Remember to delete Links!
+            If you want to delete tag, type password:<br>
+            <input class="form-control" type="password" #secretPassword/><br>
+            <button type="button" class="btn btn-danger" (click)="checkPassword()" style="margin-bottom: 40px;">
+                    Check password
+            </button>
+            <div *ngIf="deletePossible; else deleteNotPossible">
+                <button type="button" class="btn btn-danger" (click)="deleteTag()">
+                    Finally delete Tag
+                </button>
+            </div>
+            <ng-template #deleteNotPossible>
+                Delete action is not possible!
+            </ng-template>
+        </div>
+    </form>
+</div>
+<div *ngIf="tag">
+    <app-edit-links [entityId]="tag.id" [dataType]="'Tag'"></app-edit-links>
+</div>

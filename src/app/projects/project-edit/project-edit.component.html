@@ -1,0 +1,119 @@
+<div>
+    <form [formGroup]="projectForm">
+        <div class="form-group">
+            <label class="control-label" for="path">Project path:</label><br>
+            <input class="form-control" id="path" formControlName="path"/>
+            <span *ngIf="!projectForm.get('path').valid && projectForm.get('path').touched" class="help-block">
+                This is required!
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="name">Project name:</label><br>
+            <input class="form-control" id="name" formControlName="name"/>
+            <span *ngIf="!projectForm.get('name').valid && projectForm.get('name').touched" class="help-block">
+                This is required!
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="descriptionPl">Description Pl:</label><br>
+            <textarea class="form-control" id="descriptionPl" formControlName="descriptionPl"></textarea>
+            <span *ngIf="!projectForm.get('descriptionPl').valid && projectForm.get('descriptionPl').touched" class="help-block">
+                This is required!
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="descriptionEn">Description En:</label><br>
+            <textarea class="form-control" id="descriptionEn" formControlName="descriptionEn"></textarea>
+            <span *ngIf="!projectForm.get('descriptionEn').valid && projectForm.get('descriptionEn').touched" class="help-block">
+                This is required!
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="imagePath">Image Path:</label><br>
+            <input class="form-control" id="imagePath" formControlName="imagePath"/>        
+            <span *ngIf="!projectForm.get('imagePath').valid && projectForm.get('imagePath').touched" class="help-block">
+                This is required!
+            </span>
+        </div>     
+        <div class="form-group">
+            <label class="control-label" for="githubLink">Github Link:</label><br>
+            <input class="form-control" id="githubLink" formControlName="githubLink"/>        
+            <span *ngIf="!projectForm.get('githubLink').valid && projectForm.get('githubLink').touched" class="help-block">
+                This is required!
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="link">Link: (Optional)</label><br>
+            <input class="form-control" id="link" formControlName="link"/>        
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="linkToDownload">Link to download: (Optional)</label><br>
+            <input class="form-control" id="linkToDownload" formControlName="linkToDownload"/>        
+        </div>     
+        <div class="form-group">
+            <label class="control-label" for="lengthPl">Length Pl:</label><br>
+            <input class="form-control" id="lengthPl" formControlName="lengthPl"/>        
+            <span *ngIf="!projectForm.get('lengthPl').valid && projectForm.get('lengthPl').touched" class="help-block">
+                This is required!
+            </span>
+        </div>     
+        <div class="form-group">
+            <label class="control-label" for="lengthEn">Length En:</label><br>
+            <input class="form-control" id="lengthEn" formControlName="lengthEn"/>        
+            <span *ngIf="!projectForm.get('lengthEn').valid && projectForm.get('lengthEn').touched" class="help-block">
+                This is required!
+            </span>
+        </div>     
+        <div class="form-group">
+            <label class="control-label" for="workStarted">Work started date:</label><br>
+            <input class="form-control" id="workStarted" formControlName="workStarted"/>        
+            <span *ngIf="!projectForm.get('workStarted').valid && projectForm.get('workStarted').touched" class="help-block">
+                This is required!
+            </span>
+        </div>     
+        <div class="form-group">
+            <label class="control-label" for="posted">Posted (Optional):</label><br>
+            <input class="form-control" id="posted" formControlName="posted"/>        
+        </div>     
+        <div class="form-group">
+            <label class="control-label" for="lastUpdate">Last update (Optional):</label><br>
+            <input class="form-control" id="lastUpdate" formControlName="lastUpdate"/>       
+        </div>     
+        <div class="form-group">
+            <label class="control-label" for="commentsAvailable">Comments available:</label><br>
+            <input class="form-control" id="commentsAvailable" type="checkbox" formControlName="commentsAvailable"/>        
+        </div>     
+        
+        <button type="button" class="btn btn-success" (click)="onSubmit()" [disabled]="!projectForm.valid">
+                Send Project
+        </button>
+        
+        <span *ngIf="project">
+            <button type="button" class="btn btn-danger" (click)="toggleDelete = !toggleDelete">
+                Delete Project
+            </button>
+        </span>
+        <div *ngIf="toggleDelete">
+            Remember to delete Links!
+            If you want to delete project, type password:<br>
+            <input class="form-control" type="password" #secretPassword/><br>
+            <button type="button" class="btn btn-danger" (click)="checkPassword()" style="margin-bottom: 40px;">
+                    Check password
+            </button>
+            <div *ngIf="deletePossible; else deleteNotPossible">
+                <button type="button" class="btn btn-danger" (click)="deleteProject()">
+                    Finally delete Project
+                </button>
+            </div>
+            <ng-template #deleteNotPossible>
+                Delete action is not possible!
+            </ng-template>
+        </div>
+    </form>
+</div>
+<div *ngIf="project">
+    <app-edit-links [entityId]="project.id" [dataType]="'Project'"></app-edit-links>
+    <br>
+    <app-project-tags [entityId]="project.id"></app-project-tags>
+    <br>
+</div>

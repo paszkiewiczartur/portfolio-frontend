@@ -1,0 +1,74 @@
+<div class="btn-group btn-breadcrumb">
+    <a class="btn btn-default" routerLink="/">
+        <i class="glyphicon glyphicon-home"></i> <span i18n="@@home">Home</span>
+    </a>
+    <a class="btn btn-default" routerLink="/courses" i18n="@@courses">Courses</a>
+    <a *ngIf="(coursesState | async).course" class="btn btn-default">{{ (coursesState | async).course.name }}</a>
+</div>
+<div *ngIf="(authState | async).authenticated">
+    <button class="btn btn-lg btn-warning" (click)="courseEdit=!courseEdit">Edit Course (toggle):</button>
+</div>
+
+<div class="entity">
+    <div *ngIf="!(coursesState | async).course">
+        <span i18n="@@course">Course</span> {{ path }} <span i18n="@@doesntExist">doesn't exist</span>!<br>
+    </div>
+    <div *ngIf="!courseEdit && (coursesState | async).course">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>{{ (coursesState | async).course.name}}</h1>
+                <h3>{{ (coursesState | async).course.author}}</h3>
+                <div *ngIf="isPolish(); else english">
+                    <p>
+                        {{ (coursesState | async).course.descriptionPl}}<br>
+                    </p>
+                </div>
+                <ng-template #english>
+                    <p>
+                        {{ (coursesState | async).course.descriptionEn}}<br>
+                    </p>
+                </ng-template>
+                <div class="entity-additional">
+                    <span i18n="@@link">Link</span>:
+                    <a href="{{ (coursesState | async).course.link}}" (click)="websiteClicked()" target="_blank">
+                        <span class="glyphicon glyphicon-share-alt"></span>
+                        <span class="entity-link">{{ (coursesState | async).course.link}}</span>
+                    </a><br>
+                    <span *ngIf="(coursesState | async).course.lengthInHours">
+                        <span i18n="@@courseLength">Course length</span>: {{ (coursesState | async).course.lengthInHours}}h
+                    </span><br>
+                    <span i18n="@@whenFinishedCourse">When I have finished a course</span>: 
+                    <span class="badge">{{ (coursesState | async).course.haveRead}}</span><br>
+                    <span *ngIf="(coursesState | async).course.rating">
+                        <span i18n="@@myrating">My rating</span>: {{ (coursesState | async).course.rating}}/10
+                    </span><br>
+                    <span i18n="@@tags">Tags</span>:<br> 
+                    <span class="labels">
+                        <span *ngFor="let tag of (coursesState | async).courseTags" class="label label-dark">
+                            <span *ngIf="isPolish(); else englishTag">
+                                <a [routerLink]="['/tags', tag.path]">{{ tag.name }}</a>
+                            </span>
+                            <ng-template #englishTag>
+                                <a [routerLink]="['/tags', tag.path]">{{ tag.nameEn }}</a>
+                            </ng-template>
+                        </span>
+                    </span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span i18n="@@posted">Posted</span>: {{ (coursesState | async).course.posted }}
+                    </div>
+                    <div class="panel-body">
+                        <span i18n="@@lastUpdate">Last Update</span>:{{ (coursesState | async).course.lastUpdate }}
+                    </div>
+                </div>
+                <img class="entity-image" src="{{ (coursesState | async).course.imagePath }}"/><br>
+            </div>
+        </div>
+        <app-comments></app-comments>
+    </div>
+    <app-course-edit *ngIf="courseEdit" [course]="(coursesState | async).course"></app-course-edit>
+</div>

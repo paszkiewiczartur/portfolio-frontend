@@ -1,0 +1,93 @@
+<div class="btn-group btn-breadcrumb">
+    <a class="btn btn-default" routerLink="/">
+        <i class="glyphicon glyphicon-home"></i> <span i18n="@@home">Home</span>
+    </a>
+    <a class="btn btn-default" routerLink="/projects" i18n="@@projects">Projects</a>
+    <a *ngIf="(projectsState | async).project" class="btn btn-default">{{ (projectsState | async).project.name }}</a>
+</div>
+<div *ngIf="(authState | async).authenticated">
+    <button class="btn btn-lg btn-warning" (click)="projectEdit=!projectEdit">Edit Project (toggle):</button>
+</div>
+<div class="entity">
+    <div *ngIf="!(projectsState | async).project">
+        <span i18n="@@project">Project</span> {{ path }} <span i18n="@@doesntExist">doesn't exist</span>!<br>
+    </div>
+    <div *ngIf="!projectEdit && (projectsState | async).project">
+         <div class="row">
+            <div class="col-md-6">
+                <h1>{{ (projectsState | async).project.name}}</h1>
+                <div *ngIf="isPolish(); else englishDesc">
+                    <p>
+                        {{ (projectsState | async).project.descriptionPl}}<br>
+                    </p>
+                </div>
+                <ng-template #englishDesc>
+                    <p>
+                        {{ (projectsState | async).project.descriptionEn}}<br>
+                    </p>
+                </ng-template>
+                <div class="entity-additional">
+                    <div *ngIf="(projectsState | async).project.link">
+                        <span i18n="@@projectLink">Project link</span>:
+                        <a href="{{ (projectsState | async).project.link}}" (click)="websiteClicked()" target="_blank">
+                            <span class="glyphicon glyphicon-share-alt"></span>
+                            <span class="entity-link">{{ (projectsState | async).project.link}}</span>
+                        </a><br>
+                    </div>
+                    <div *ngIf="(projectsState | async).project.githubLink">
+                        <span i18n="@@githubLink">Github link</span>:
+                        <a href="{{ (projectsState | async).project.githubLink }}" (click)="githubClicked()" target="_blank">
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                            <span class="entity-link">{{ (projectsState | async).project.githubLink}}</span>
+                        </a><br>
+                    </div>
+                    <div *ngIf="(projectsState | async).project.linkToDownload">
+                        <span i18n="@@downloadLink">Download link</span>:
+                        <a href="{{ (projectsState | async).project.linkToDownload}}" (click)="downloadClicked()" target="_blank">
+                            <span class="glyphicon glyphicon-save"></span>
+                            <span *ngIf="isPolish(); else englishLink" class="entity-link">
+                                Pobierz projekt
+                            </span>
+                            <ng-template #englishLink class="inline entity-link">
+                                Download project
+                            </ng-template>
+                        </a><br>
+                    </div>
+                    <span i18n="@@workStarted">Work Started</span>: {{ (projectsState | async).project.workStarted}}<br>
+                    <span i18n="@@wmountWorkDays">Amount of work days</span>:
+                    <span *ngIf="isPolish(); else englishLen">
+                        {{ (projectsState | async).project.lengthPl}}<br>
+                    </span>
+                    <ng-template #englishLen>
+                         {{ (projectsState | async).project.lengthEn}}<br>
+                    </ng-template>
+                    <span i18n="@@tags">Tags</span>:<br> 
+                    <span class="labels">
+                        <span *ngFor="let tag of (projectsState | async).projectTags" class="label label-dark">
+                            <span *ngIf="isPolish(); else englishTag">
+                                <a [routerLink]="['/tags', tag.path]">{{ tag.name }}</a>
+                            </span>
+                            <ng-template class="inline" #englishTag>
+                                <a [routerLink]="['/tags', tag.path]">{{ tag.nameEn }}</a>
+                            </ng-template>
+                        </span>
+                    </span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span i18n="@@posted">Posted</span>: {{ (projectsState | async).project.posted }}
+                    </div>
+                    <div class="panel-body">
+                        <span i18n="@@lastUpdate">Last Update</span>:{{ (projectsState | async).project.lastUpdate }}
+                    </div>
+                </div>
+                <img class="entity-image" src="{{ (projectsState | async).project.imagePath }}"/><br>
+            </div>
+        </div>
+        <app-comments></app-comments>    
+    </div>
+    <app-project-edit *ngIf="projectEdit" [project]="(projectsState | async).project"></app-project-edit>
+</div>             

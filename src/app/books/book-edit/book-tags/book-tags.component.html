@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="box">
+            <div *ngFor="let tag of (tagsState | async).tags">
+                <div class="well" *ngIf="!isTagAdded(tag.id)">
+                    {{ tag.name }} 
+                    <button class="btn btn-md btn-info" (click)="addTagRelation(tag.id)" [disabled]="tagRelationAdded">
+                        Add Tag
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="box">
+            <div *ngFor="let tag of tagsAdded">
+                <div class="well">
+                    {{ tag.name }} 
+                    <button class="btn btn-md btn-danger" (click)="deleteTagRelation(tag.id)" [disabled]="tagRelationDeleted">
+                        Delete Tag
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="tagRelationAdded" class="tag-sent">
+    Tag relation has been added!
+</div>
+<div *ngIf="tagRelationDeleted" class="tag-sent">
+    Tag relation has been deleted!
+</div>

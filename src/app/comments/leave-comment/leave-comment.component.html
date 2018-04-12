@@ -1,0 +1,40 @@
+<div class="leave-comment">
+    <form [formGroup]="commentForm">
+        <div class="form-group">
+            <label class="control-label" for="email">
+                <span i18n="@@email">Email</span> (<span i18n="@@optional">optional</span>):
+            </label><br>
+            <span class="help-block">(<span i18n="@@emailWontShown">email won't be shown on the page</span>)</span>
+            <input class="form-control" id="email" type="email" formControlName="email"/>
+            <span *ngIf="!commentForm.get('email').valid && commentForm.get('email').touched" 
+            class="help-block" i18n="@@emailPattern">
+                This input must have email pattern
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="nickname" i18n="@@nickname">Nickname:</label><br>
+            <input class="form-control" id="nickname" formControlName="nickname"/>        
+            <span *ngIf="!commentForm.get('nickname').valid && commentForm.get('nickname').touched"
+            class="help-block" i18n="@@required">
+                This is required
+            </span>
+        </div>     
+        <div class="form-group">
+            <label class="control-label" for="content" i18n="@@content">Content:</label><br>
+            <textarea class="form-control" id="content" formControlName="content" appTextareaResize></textarea>
+            <span *ngIf="!commentForm.get('content').valid && commentForm.get('content').touched" 
+            class="help-block" i18n="@@required">
+                This is required
+            </span>
+        </div>
+        
+        <button type="submit" class="btn btn-send" (click)="onSubmit()" 
+        [disabled]="!commentForm.get('nickname').valid || !commentForm.get('content').valid || commentSent" 
+        i18n="@@sendComment">
+                Send Comment
+        </button>
+    </form>
+</div>
+<div *ngIf="commentSent" class="comment-sent">
+    <span i18n="@@commentPosted">Your comment has been posted</span>
+</div>

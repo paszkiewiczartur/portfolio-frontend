@@ -1,0 +1,48 @@
+<div *ngIf="entityId">
+    Links:<br>
+    <div>
+        <div *ngIf="!links || !links.visit">
+            <button class="btn btn-lg btn-success btn-padding" (click)="createLink('VISIT')">
+                Create Visit Link
+            </button>
+        </div>
+        <div *ngIf="!links || !links.website">
+            <button class="btn btn-lg btn-success btn-padding" (click)="createLink('WEBSITE')">
+                Create Website Link
+            </button>
+        </div>
+        <div *ngIf="!links || !links.download">
+            <button class="btn btn-lg btn-success btn-padding" (click)="createLink('DOWNLOAD')">
+                Create Download Link
+            </button>
+        </div>
+        <div *ngIf="!links || !links.github">
+            <button class="btn btn-lg btn-success btn-padding" (click)="createLink('GITHUB')">
+                Create Github Link
+            </button>
+        </div>
+        <div *ngIf="links">
+            Delete action won't work if you haven't deleted comments and tag relationships.
+            <div *ngIf="links.visit">
+                <button class="btn btn-lg btn-danger btn-padding" (click)="deleteLink(links.visit.id)">
+                    Delete Visit Link
+                </button>
+            </div>
+            <div *ngIf="links.website">
+                <button class="btn btn-lg btn-danger btn-padding" (click)="deleteLink(links.website.id)">
+                    Delete Website Link
+                </button>
+            </div>
+            <div *ngIf="links.download">
+                <button class="btn btn-lg btn-danger btn-padding" (click)="deleteLink(links.download.id)">
+                    Delete Download Link
+                </button>
+            </div>
+            <div *ngIf="links.github">
+                <button class="btn btn-lg btn-danger btn-padding" (click)="deleteLink(links.github.id)">
+                    Delete Github Link
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+    <div *ngIf="(authState | async).authenticated">
+        <button class="btn btn-lg btn-warning" (click)="homeEdit=!homeEdit">Edit Home (toggle):</button>
+    </div>
+    <div *ngIf="!homeEdit" class="row">
+        <div class="col-md-6">
+            <div class="home-box">
+                <p class="home-header">{{ homeHeader }}</p>
+                <div class="home-body">
+                    <div *ngIf="(mainState | async).home">
+                        <div *ngIf="isPolish(); else english">
+                            <div [innerHTML]="(mainState | async).home.descriptionPl | safeHTML"></div>                    
+                        </div>
+                        <ng-template #english>
+                            <div [innerHTML]="(mainState | async).home.descriptionEn | safeHTML"></div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+                <img class="img-rounded home-img" src="/assets/logo.jpg" alt="Home image"/>    
+        </div>
+    </div>
+    <div *ngIf="homeEdit">
+        <app-edit-site-content [dataType]="'Home'"></app-edit-site-content>
+        <app-edit-links [entityId]="1" [dataType]="'Home'"></app-edit-links>
+    </div>
+</div>
+<span i18n="@@lookingforDev" class="hidden" #hiddenHeader>Looking for a developer?</span>

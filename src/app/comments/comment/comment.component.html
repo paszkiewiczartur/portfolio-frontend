@@ -1,0 +1,35 @@
+<div *ngIf="(authState | async).authenticated">
+    <div *ngIf="(authState | async).authenticated">
+        <button class="btn btn-lg btn-warning" (click)="commentEdit=!commentEdit">Edit Comment (toggle):</button>
+    </div>    
+</div>
+<div *ngIf="!commentEdit" class="well comment">
+    <h2>
+        <span i18n="@@author">Author</span>: {{ node.nickname }}<br>
+    </h2>
+    <span class="badge pull-right"><span i18n="@@posted">Posted</span>: {{ node.posted }}</span><br>
+    <p class="paragraph-comment">
+        {{ node.content }}
+    </p>
+    <span *ngIf="treeDepth<3" (click)='toggleShowLeaveComment()'>
+        <span class="leave-comment-text" i18n="@@leaveComment">Leave a comment</span>
+        <span *ngIf="!showLeaveComment; else arrow_up" class="glyphicon glyphicon-chevron-down" style="font-size:36px"></span>
+        <ng-template #arrow_up>
+            <span class="glyphicon glyphicon-chevron-up" style="font-size:36px"></span>
+        </ng-template>
+    </span>
+        
+    <div *ngIf="showLeaveComment">
+        <app-leave-comment [commentParent]="node.id"></app-leave-comment>
+    </div>
+</div>
+<div *ngIf="commentEdit">
+    <app-edit-comment [comment]="node"></app-edit-comment>
+</div>
+<div>
+    <ul>
+        <li *ngFor="let node of node.comments">
+            <app-comment [node]="node" [treeDepth]="treeDepth+1"></app-comment>
+        </li>
+    </ul>
+</div>
