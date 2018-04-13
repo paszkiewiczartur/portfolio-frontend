@@ -15,6 +15,10 @@
             </span>
         </div>
         <div class="form-group">
+            <label class="control-label" for="nameLong">Course nameLong:</label><br>
+            <input class="form-control" id="nameLong" formControlName="nameLong"/>
+        </div>
+        <div class="form-group">
             <label class="control-label" for="author">Author:</label><br>
             <input class="form-control" id="author" formControlName="author"/>
             <span *ngIf="!courseForm.get('author').valid && courseForm.get('author').touched" class="help-block">
@@ -23,14 +27,14 @@
         </div>
         <div class="form-group">
             <label class="control-label" for="descriptionPl">Description Pl:</label><br>
-            <textarea class="form-control" id="descriptionPl" formControlName="descriptionPl"></textarea>
+            <textarea class="form-control" id="descriptionPl" formControlName="descriptionPl" appTextareaResize></textarea>
             <span *ngIf="!courseForm.get('descriptionPl').valid && courseForm.get('descriptionPl').touched" class="help-block">
                 This is required!
             </span>
         </div>
         <div class="form-group">
             <label class="control-label" for="descriptionEn">Description En:</label><br>
-            <textarea class="form-control" id="descriptionEn" formControlName="descriptionEn"></textarea>
+            <textarea class="form-control" id="descriptionEn" formControlName="descriptionEn" appTextareaResize></textarea>
             <span *ngIf="!courseForm.get('descriptionEn').valid && courseForm.get('descriptionEn').touched" class="help-block">
                 This is required!
             </span>
@@ -54,7 +58,7 @@
             </span>
         </div>     
         <div class="form-group">
-            <label class="control-label" for="lengthInHours">Length in Hours:</label><br>
+            <label class="control-label" for="lengthInHours">Length in Hours (Optional):</label><br>
             <input class="form-control" id="lengthInHours" type="number" formControlName="lengthInHours"/>        
         </div>     
         <div class="form-group">

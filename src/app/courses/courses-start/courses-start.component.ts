@@ -25,9 +25,6 @@ export class CoursesStartComponent implements OnInit {
             (coursesState: fromCourses.State) => {
                 if(coursesState.courses){
                     let courses = coursesState.courses.slice();
-                    console.log("courses");
-                    console.log(courses);
-                    console.log(coursesState);
                     courses.sort(function(a, b){return 0.5 - Math.random()});
                     if(courses[0])
                         this.course1 = courses[0].image;
@@ -35,7 +32,6 @@ export class CoursesStartComponent implements OnInit {
                         this.course2 = courses[1].image;
                     if(courses[2])
                         this.course3 = courses[2].image;
-                    console.log(this.course1);
                 }
             }
         );

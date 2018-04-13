@@ -9,7 +9,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-//import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,8 +32,6 @@ import { TagsModule } from './tags/tags.module';
     AppComponent
   ],
   imports: [
-    //CommonModule,
-    //NgbModule.forRoot(),
     BrowserModule,
     NoopAnimationsModule,
     FormsModule,

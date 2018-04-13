@@ -31,7 +31,6 @@ export class MainEffects {
 fetchVisitData = this.actions$
     .ofType(MainActions.FETCH_VISIT_DATA)
     .switchMap((action: MainActions.FetchVisitData) => {
-        console.log("FETCH_VISIT_DATA");
         return this.httpClient.get<IpAddress>('https://ipapi.co/json',{
                 observe: 'body',
                 responseType: 'json'
@@ -39,12 +38,9 @@ fetchVisitData = this.actions$
     })
     .switchMap(
       (data) => {
-        console.log(data);
         if(typeof(Storage)!=="undefined"){
-            console.log("Jest Storage");
             let storageValue: {guest_id: number; ip_id: number;} = JSON.parse(localStorage.getItem('arturpaszkiewicz.pl'));
             if(storageValue){
-                console.log(storageValue);
                 data.guest_id = +storageValue.guest_id;
                 data.id = +storageValue.ip_id;
             }
@@ -54,7 +50,6 @@ fetchVisitData = this.actions$
         const browserInfo = this.checkBrowserService.browserInfo();
         data.browser = browserInfo.browser;
         data.browserVersion = browserInfo.browserVersion.toString();
-        console.log(data);        
       return this.httpClient.post<VisitData>('/api/guests/save', data,{
                 observe: 'body',
                 responseType: 'json'
@@ -62,13 +57,11 @@ fetchVisitData = this.actions$
     })
     .map(
       (data) => {
-        console.log(data);
         if(typeof(Storage)!=="undefined") {
             if(data.guest_id !== 1 && data.ip_id !== 1){
                 const visitInfo: {guest_id: number; ip_id: number;} = {guest_id: data.guest_id, ip_id: data.ip_id};
-                //localStorage.setItem('arturpaszkiewicz.pl', JSON.stringify(visitInfo);            
+                localStorage.setItem('arturpaszkiewicz.pl', JSON.stringify(visitInfo);            
             } else {
-                console.log('localStorage.removeItem()');
                 localStorage.removeItem('arturpaszkiewicz.pl');
             }
         }        
@@ -91,8 +84,6 @@ fetchLinks = this.actions$
     })
     .map(
       (data) => {
-        console.log("przyszły linki");
-        console.log(data._embedded.links);
         return {
             type: MainActions.SET_LINKS,
             payload: data._embedded.links
@@ -108,21 +99,17 @@ sendLinkEntrance = this.actions$
     })
     .withLatestFrom(this.store.select('main'))
     .switchMap(([action, state]) => {
-        console.log("Before state.links");
         if(state.links){
-            console.log("state i action");
-            console.log(state);
-            console.log(action);
-            console.log(state.links);
             let linkEntrance:{entrance: string; link: string;} = {         
                 entrance: '/api/entrances/' +state.entrance_id,
                 link: '/api/links/' + state.links[action.payload.toLowerCase()].id
             };
-            console.log("wysyłam");
-            console.log(linkEntrance)
           return this.httpClient.post('/api/linkEntrances', linkEntrance,{
                 observe: 'body',
                 responseType: 'json'
+            })
+            .catch(err => {
+              return Observable.empty();
             });
         } else {
             return Observable.empty();
@@ -133,7 +120,6 @@ sendLinkEntrance = this.actions$
   sendVisitLinkEntrance = this.actions$.ofType(MainActions.SET_LINKS)
     .withLatestFrom(this.store.select('main'))
     .switchMap(([action, state]) => {
-        console.log("inside beside sendVisitLinkEntrance");
         let actions = [];
         if(state.waitForVisitData){
             actions.push({
@@ -151,7 +137,6 @@ sendLinkEntrance = this.actions$
 @Effect()
 afterSetVisitData = this.actions$.ofType(MainActions.SET_VISIT_DATA)
     .map((action: MainActions.SetVisitData) => {
-        console.log("SET_DIRTY afterSetVisitData");
         return {
             type: MainActions.SET_DIRTY   
         };
@@ -162,8 +147,6 @@ afterSetVisitData = this.actions$.ofType(MainActions.SET_VISIT_DATA)
       .combineLatest(this.actions$.ofType(MainActions.SET_VISIT_DATA))
       .withLatestFrom(this.store.select('main'))
       .map(([actions, state]) => {
-          console.log("inside waitForVisitData"); 
-//          console.log(state.links.visit);
         return {
             type: MainActions.SEND_LINK_ENTRANCE,
             payload: LinkType[LinkType.VISIT]      
@@ -177,10 +160,6 @@ sendMessage = this.actions$.ofType(MainActions.SEND_MESSAGE)
     })
     .withLatestFrom(this.store.select('main'))
     .switchMap(([action, state]) => {
-        console.log("action");
-        console.log(action);
-        console.log("state");
-        console.log(state);
         action.payload.entrance = state.entrance_id;
       return this.httpClient.post('/api/messages/save', action.payload,{
                 observe: 'body',
@@ -215,8 +194,6 @@ fetchSiteContent = this.actions$.ofType(MainActions.FETCH_SITE_CONTENT)
                 responseType: 'json'
       })
       .catch(err => {
-            console.log("obsługa błędów działa!");
-            console.log(err);
         return Observable.empty();
       });
     })
@@ -233,8 +210,6 @@ fetchSiteContent = this.actions$.ofType(MainActions.FETCH_SITE_CONTENT)
 @Effect({dispatch: false})
 storeSiteContent = this.actions$.ofType(MainActions.STORE_SITE_CONTENT)
     .switchMap((action: MainActions.StoreSiteContent) => {
-        console.log("wysyłam site_content");
-        console.log(action.payload);
       return this.httpClient.post('/api/siteContent', action.payload,{
                 observe: 'body',
                 responseType: 'json'
@@ -253,17 +228,12 @@ deleteSiteContent = this.actions$.ofType(MainActions.DELETE_SITE_CONTENT)
 @Effect()
 fetchSearchData = this.actions$.ofType(MainActions.FETCH_SEARCH_DATA)
     .switchMap((action: MainActions.FetchSearchData) => {
-        console.log("during FETCH_SEARCH_DATA");
-        console.log('/api/search/' + action.payload);
       return this.httpClient.get<Array<SearchDraft>>('/api/search/' + action.payload, {
                 observe: 'body',
                 responseType: 'json'
       });
     })
     .map((data: Array<SearchDraft>) => {
-        console.log("SearchData arrived");
-        console.log(data);
-        console.log("length: ", data.length);
         return {
             type: MainActions.SET_SEARCH_DATA,
             payload: data

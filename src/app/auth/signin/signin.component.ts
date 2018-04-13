@@ -22,7 +22,6 @@ export class SigninComponent implements OnInit {
     constructor(private store: Store<fromApp.AppState>) { }
 
     ngOnInit() {
-        this.store.dispatch(new MainActions.FetchSiteContent('Signin'));
         this.sendVisitLinkEntrance();
         this.authState = this.store.select('auth');
     }

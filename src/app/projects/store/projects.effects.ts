@@ -35,8 +35,6 @@ export class ProjectsEffects {
       })
       .switchMap(
         (project) => {
-            console.log("Loguję projecta");
-            console.log(project);
             let commentData: LinkRequestType = {
                 site: DataType.Project,
                 entity: project.id
@@ -64,7 +62,6 @@ export class ProjectsEffects {
         }
       )        
         .catch(err => {
-            console.log("ERROR!");
               return Observable.of({ type: ProjectsActions.FETCH_PROJECT_FAIL, payload: err });
         });
     });
@@ -79,11 +76,7 @@ export class ProjectsEffects {
       });
     })
     .map((projects) => {
-        console.log("before sorting");
-        console.log(projects)
         this.entitySortService.sort(projects);
-        console.log("after sorting");
-        console.log(projects)
       return {
         type: ProjectsActions.SET_PROJECTS,
         payload: projects
@@ -100,7 +93,6 @@ export class ProjectsEffects {
       });
     })
     .map((projects) => {
-        console.log("Zaraz Fetch_Projects");
       return {
         type: ProjectsActions.FETCH_PROJECTS
       };
@@ -110,24 +102,15 @@ export class ProjectsEffects {
   storeProject = this.actions$
     .ofType(ProjectsActions.STORE_PROJECT)
     .switchMap((action: ProjectsActions.StoreProject) => {
-        console.log("prepare to send Project");
-        console.log(action.payload);
       return this.httpClient.post('/api/projects', action.payload, {
         observe: 'body',
         responseType: 'json'
       })
     })
     .map((data) => {
-        console.log("data after post project:");
-        console.log(data);
       return {
-            type: ProjectsActions.FETCH_PROJECTS
+                type: ProjectsActions.FETCH_PROJECTS
             };
-        /*{
-            type: MainActions.SET_COMMENTS,
-            payload: new Array()
-        }
-      ];*/
     });
 
 @Effect()
@@ -140,11 +123,9 @@ export class ProjectsEffects {
       })
     })
     .switchMap((data) => {
-        console.log("data after delete project:");
-        console.log(data);
       return [
         {
-        type: ProjectsActions.FETCH_PROJECTS
+            type: ProjectsActions.FETCH_PROJECTS
         },
         {
             type: CommentsActions.SET_COMMENTS,
@@ -163,8 +144,6 @@ fetchProjectTags = this.actions$
       })
     })
     .map((data) => {
-        console.log("data after fetch project tags:");
-        console.log(data);
       return {
             type: ProjectsActions.SET_PROJECT_TAGS,
             payload: data._embedded.tags

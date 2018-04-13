@@ -34,10 +34,8 @@ export class CourseEditComponent implements OnInit {
             }
         );
         if(!this.course){
-            console.log("newCourse");
             this.newCourse = true;
         } else {
-            console.log("!newCourse");
             this.newCourse = false;
         }
         this.initForm();   
@@ -46,6 +44,7 @@ export class CourseEditComponent implements OnInit {
     initForm(){
         let path: string = null;
         let name: string = null;
+        let nameLong: string = null;
         let author: string = null;
         let descriptionPl: string = null;
         let descriptionEn: string = null;
@@ -65,6 +64,7 @@ export class CourseEditComponent implements OnInit {
         if(this.course){
             path = this.course.path;
             name = this.course.name;
+            nameLong = this.course.nameLong;
             author = this.course.author;
             descriptionPl = this.course.descriptionPl;
             descriptionEn = this.course.descriptionEn;
@@ -80,6 +80,7 @@ export class CourseEditComponent implements OnInit {
         this.courseForm = new FormGroup({
             'path': new FormControl(path, Validators.required),
             'name': new FormControl(name, Validators.required),
+            'nameLong': new FormControl(nameLong),
             'author': new FormControl(author, Validators.required),
             'descriptionPl': new FormControl(descriptionPl, Validators.required),
             'descriptionEn': new FormControl(descriptionEn, Validators.required),
@@ -109,11 +110,9 @@ export class CourseEditComponent implements OnInit {
     }
     
     checkPassword(){
-        console.log(this.authenticated, this.newCourse, this.password, this.secretPassword.nativeElement.value);
         if(this.authenticated && !this.newCourse){
             if(this.password === this.secretPassword.nativeElement.value){
                 this.deletePossible = true;
-                console.log("deletePossible");
             }
         }
     }

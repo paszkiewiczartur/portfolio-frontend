@@ -34,10 +34,8 @@ export class BookEditComponent implements OnInit {
             }
         );
         if(!this.book){
-            console.log("newBook");
             this.newBook = true;
         } else {
-            console.log("!newBook");
             this.newBook = false;
         }
         this.initForm();   
@@ -46,6 +44,7 @@ export class BookEditComponent implements OnInit {
     initForm(){
         let path: string = null;
         let name: string = null;
+        let nameLong: string = null;
         let author: string = null;
         let descriptionPl: string = null;
         let descriptionEn: string = null;
@@ -65,6 +64,7 @@ export class BookEditComponent implements OnInit {
         if(this.book){
             path = this.book.path;
             name = this.book.name;
+            nameLong = this.book.nameLong;
             author = this.book.author;
             descriptionPl = this.book.descriptionPl;
             descriptionEn = this.book.descriptionEn;
@@ -80,6 +80,7 @@ export class BookEditComponent implements OnInit {
         this.bookForm = new FormGroup({
             'path': new FormControl(path, Validators.required),
             'name': new FormControl(name, Validators.required),
+            'nameLong': new FormControl(nameLong),
             'author': new FormControl(author, Validators.required),
             'descriptionPl': new FormControl(descriptionPl, Validators.required),
             'descriptionEn': new FormControl(descriptionEn, Validators.required),
@@ -109,11 +110,9 @@ export class BookEditComponent implements OnInit {
     }
     
     checkPassword(){
-        console.log(this.authenticated, this.newBook, this.password, this.secretPassword.nativeElement.value);
         if(this.authenticated && !this.newBook){
             if(this.password === this.secretPassword.nativeElement.value){
                 this.deletePossible = true;
-                console.log("deletePossible");
             }
         }
     }

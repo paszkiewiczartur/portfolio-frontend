@@ -28,8 +28,6 @@ export class HeaderComponent implements OnInit {
   }
   
   search(){
-    console.log("searchTextInput");
-    console.log(this.searchTextInput.nativeElement.value);
     let searchText: string = this.searchTextInput.nativeElement.value;
     if(searchText){
         this.router.navigate(['/search', searchText]);
@@ -42,8 +40,6 @@ export class HeaderComponent implements OnInit {
 
     searchLink(searchTextInput: HTMLInputElement){
         this.isCollapsed = true;
-        console.log("searchTextInput");
-        console.log(searchTextInput.value);
         if(searchTextInput.value){
             console.log("jest coś");
             return '/search/' + searchTextInput.value;

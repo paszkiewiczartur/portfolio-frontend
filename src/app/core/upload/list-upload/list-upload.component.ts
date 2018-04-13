@@ -10,19 +10,17 @@ import {UploadFileService} from './../../../shared/services/upload-file.service'
   styleUrls: ['./list-upload.component.css']
 })
 export class ListUploadComponent implements OnInit {
-
-  showFile = false
-  fileUploads: Observable<string[]>
+  showFile:boolean = false;
+  fileUploads: Observable<string[]>;
 
   constructor(private uploadService: UploadFileService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
   showFiles(enable: boolean) {
-    this.showFile = enable
+    this.showFile = enable;
 
-    if (enable) {
+    if(enable) {
       this.fileUploads = this.uploadService.getFiles();
     }
   }

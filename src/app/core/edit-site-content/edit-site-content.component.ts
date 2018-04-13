@@ -61,7 +61,6 @@ export class EditSiteContentComponent implements OnInit {
     }
 
     deleteSiteContent(){
-        console.log("usuwanie siteContent o id:", this.siteContent.id);
         this.store.dispatch(new MainActions.DeleteSiteContent(this.siteContent.id));
         this.router.navigate(['/']);
     }

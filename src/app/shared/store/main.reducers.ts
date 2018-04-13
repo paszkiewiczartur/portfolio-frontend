@@ -46,7 +46,6 @@ const initialState: State = {
 export function mainReducer(state = initialState, action: MainActions.MainActions) {
   switch (action.type) {
     case (MainActions.SET_VISIT_DATA):
-        console.log("during SET_VISIT_DATA");
       return {
         ...state,
         ip_id: action.payload.ip_id,
@@ -54,7 +53,6 @@ export function mainReducer(state = initialState, action: MainActions.MainAction
         entrance_id: action.payload.entrance_id
       };
     case(MainActions.SET_LINKS):
-        console.log("during SET_LINKS");
         let links = null;
         if(action.payload.length > 0){
             let visit: Link = null;
@@ -64,7 +62,6 @@ export function mainReducer(state = initialState, action: MainActions.MainAction
             for(let x in action.payload){
                 if(action.payload[x].linkType.toString() === LinkType[LinkType.VISIT]){
                     visit = action.payload[x];
-                    console.log("HURRA! jest VISIT!");
                 }
                 if(action.payload[x].linkType.toString() === LinkType[LinkType.WEBSITE])
                     website = action.payload[x];
@@ -82,35 +79,27 @@ export function mainReducer(state = initialState, action: MainActions.MainAction
         } else {
             console.log("Warning! Empty links array!");
         }
-        console.log("Loguję linki");
-        console.log(links);
       return {
         ...state,
         links: links
       };
     case (MainActions.SET_DIRTY):
-        console.log("during SET_DIRTY");
       return {
         ...state,
         waitForVisitData: false
       };
     case (MainActions.SET_SITE_CONTENT):
-        console.log("during SET_SITE_CONTENT");
-        console.log(action.payload.siteContent);
         if(action.payload.dataType === DataType[DataType.About].toLowerCase()){
-            console.log(action.payload.dataType);
             return {
                 ...state,
                 about: action.payload.siteContent
             };        
         } else if(action.payload.dataType === DataType[DataType.Contact].toLowerCase()){
-            console.log(action.payload.dataType);
             return {
                 ...state,
                 contact: action.payload.siteContent
             };      
         } else if(action.payload.dataType === DataType[DataType.Home].toLowerCase()){
-            console.log(action.payload.dataType);
             return {
                 ...state,
                 home: action.payload.siteContent
@@ -118,15 +107,7 @@ export function mainReducer(state = initialState, action: MainActions.MainAction
         } else {
             return state;
         }
-           /* return {
-                ...state,
-                about: action.payload.siteContent,
-                contact: action.payload.siteContent,
-                home: action.payload.siteContent
-            };      
-        */
     case (MainActions.SET_SEARCH_DATA):
-        console.log("during SET_SEARCH_DATA");
       return {
         ...state,
         searched: action.payload

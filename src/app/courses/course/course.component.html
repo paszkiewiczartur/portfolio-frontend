@@ -16,17 +16,17 @@
     <div *ngIf="!courseEdit && (coursesState | async).course">
         <div class="row">
             <div class="col-md-6">
-                <h1>{{ (coursesState | async).course.name}}</h1>
+                <h1 *ngIf="!(coursesState | async).course.nameLong; else nameLong">{{ (coursesState | async).course.name}}</h1>
+                <ng-template #nameLong>
+                    <h1>{{ (coursesState | async).course.nameLong }}</h1>
+                </ng-template>
                 <h3>{{ (coursesState | async).course.author}}</h3>
                 <div *ngIf="isPolish(); else english">
-                    <p>
-                        {{ (coursesState | async).course.descriptionPl}}<br>
-                    </p>
+                    <p [innerHTML]="(coursesState | async).course.descriptionPl | safeHTML"></p>
+                    <br>
                 </div>
                 <ng-template #english>
-                    <p>
-                        {{ (coursesState | async).course.descriptionEn}}<br>
-                    </p>
+                    <p [innerHTML]="(coursesState | async).course.descriptionEn | safeHTML"></p><br>
                 </ng-template>
                 <div class="entity-additional">
                     <span i18n="@@link">Link</span>:

@@ -21,20 +21,16 @@ const initialState: State = {
 export function commentsReducer(state = initialState, action: CommentsActions.CommentsActions) {
   switch (action.type) {
     case (CommentsActions.SET_COMMENT_DATA):
-        console.log("during SET_COMMENT_DATA");
       return {
         ...state,
         commentData: action.payload
       };
     case (CommentsActions.SET_COMMENTS):
-        console.log("ilość komentarzy");
-        console.log(action.payload.length);
       return {
         ...state,
         comments: [...action.payload]
       };
     case (CommentsActions.SET_COMMENT):
-        console.log("during SET_COMMENT");
       return {
         ...state,
         comment: action.payload

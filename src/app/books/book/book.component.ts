@@ -33,13 +33,6 @@ export class BookComponent implements OnInit {
                 this.store.dispatch(new BooksActions.FetchBook(this.path));
             }
         );
-        /*this.store.select('books').subscribe(
-            (booksState: fromBooks.State) => {
-                if(booksState.book && !booksState.bookTags){
-                    this.store.dispatch(new BooksActions.FetchBookTags(booksState.book.id));                
-                }
-            }
-        );*/
     }
     
     websiteClicked(){

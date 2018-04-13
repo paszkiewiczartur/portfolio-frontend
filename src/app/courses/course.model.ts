@@ -2,6 +2,7 @@ export class Course {
     constructor(
         public id: number,
         public name: string,
+        public nameLong: string,
         public path: string,
         public author: string,
         public descriptionPl: string,

@@ -25,9 +25,6 @@ export class BooksStartComponent implements OnInit {
             (booksState: fromBooks.State) => {
                 if(booksState.books){
                     let books = booksState.books.slice();
-                    console.log("books");
-                    console.log(books);
-                    console.log(booksState);
                     books.sort(function(a, b){return 0.5 - Math.random()});
                     if(books[0])
                         this.book1 = books[0].image;
@@ -35,7 +32,6 @@ export class BooksStartComponent implements OnInit {
                         this.book2 = books[1].image;
                     if(books[2])
                         this.book3 = books[2].image;
-                    console.log(this.book1);
                 }
             }
         );

@@ -7,7 +7,5 @@ export class SafePipe implements PipeTransform{
 
   transform(style) {
     return this.sanitizer.bypassSecurityTrustHtml(style);
-    //return this.sanitizer.bypassSecurityTrustStyle(style);
-    // return this.sanitizer.bypassSecurityTrustXxx(style); - see docs
   }
 }

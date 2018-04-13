@@ -22,8 +22,6 @@ export class SingleCommentComponent implements OnInit {
         this.route.params.subscribe(
             (params: Params) => {
                 this.id = +params['id'];    
-                console.log("inside singleCommentComponent");
-                console.log(this.id);
                 this.store.dispatch(new CommentsActions.FetchComment(this.id));
             }
         );

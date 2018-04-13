@@ -35,8 +35,6 @@ export class CoursesEffects {
       })
       .switchMap(
         (course) => {
-            console.log("Loguję coursea");
-            console.log(course);
             let commentData: LinkRequestType = {
                 site: DataType.Course,
                 entity: course.id
@@ -64,7 +62,6 @@ export class CoursesEffects {
         }
       )        
         .catch(err => {
-            console.log("ERROR!");
               return Observable.of({ type: CoursesActions.FETCH_COURSE_FAIL, payload: err });
         });
     });
@@ -79,11 +76,7 @@ export class CoursesEffects {
       });
     })
     .map((courses) => {
-        console.log("before sorting");
-        console.log(courses)
         this.entitySortService.sort(courses);
-        console.log("after sorting");
-        console.log(courses)
       return {
         type: CoursesActions.SET_COURSES,
         payload: courses
@@ -100,7 +93,6 @@ export class CoursesEffects {
       });
     })
     .map((courses) => {
-        console.log("Zaraz Fetch_Courses");
       return {
         type: CoursesActions.FETCH_COURSES
       };
@@ -110,24 +102,15 @@ export class CoursesEffects {
   storeCourse = this.actions$
     .ofType(CoursesActions.STORE_COURSE)
     .switchMap((action: CoursesActions.StoreCourse) => {
-        console.log("prepare to send Course");
-        console.log(action.payload);
       return this.httpClient.post('/api/courses', action.payload, {
         observe: 'body',
         responseType: 'json'
       })
     })
     .map((data) => {
-        console.log("data after post course:");
-        console.log(data);
       return {
-            type: CoursesActions.FETCH_COURSES
+                type: CoursesActions.FETCH_COURSES
             };
-        /*{
-            type: MainActions.SET_COMMENTS,
-            payload: new Array()
-        }
-      ];*/
     });
 
 @Effect()
@@ -140,11 +123,9 @@ export class CoursesEffects {
       })
     })
     .switchMap((data) => {
-        console.log("data after delete course:");
-        console.log(data);
       return [
         {
-        type: CoursesActions.FETCH_COURSES
+            type: CoursesActions.FETCH_COURSES
         },
         {
             type: CommentsActions.SET_COMMENTS,
@@ -163,8 +144,6 @@ fetchCourseTags = this.actions$
       })
     })
     .map((data) => {
-        console.log("data after fetch course tags:");
-        console.log(data);
       return {
             type: CoursesActions.SET_COURSE_TAGS,
             payload: data._embedded.tags

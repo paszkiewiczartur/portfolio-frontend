@@ -15,15 +15,19 @@
             </span>
         </div>
         <div class="form-group">
+            <label class="control-label" for="nameLong">Project nameLong:</label><br>
+            <input class="form-control" id="nameLong" formControlName="nameLong"/>
+        </div>
+        <div class="form-group">
             <label class="control-label" for="descriptionPl">Description Pl:</label><br>
-            <textarea class="form-control" id="descriptionPl" formControlName="descriptionPl"></textarea>
+            <textarea class="form-control" id="descriptionPl" formControlName="descriptionPl" appTextareaResize></textarea>
             <span *ngIf="!projectForm.get('descriptionPl').valid && projectForm.get('descriptionPl').touched" class="help-block">
                 This is required!
             </span>
         </div>
         <div class="form-group">
             <label class="control-label" for="descriptionEn">Description En:</label><br>
-            <textarea class="form-control" id="descriptionEn" formControlName="descriptionEn"></textarea>
+            <textarea class="form-control" id="descriptionEn" formControlName="descriptionEn" appTextareaResize></textarea>
             <span *ngIf="!projectForm.get('descriptionEn').valid && projectForm.get('descriptionEn').touched" class="help-block">
                 This is required!
             </span>

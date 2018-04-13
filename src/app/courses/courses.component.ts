@@ -24,19 +24,16 @@ export class CoursesComponent implements OnInit {
         this.coursesState = this.store.select('courses');
         this.authState = this.store.select('auth');
         this.store.dispatch(new CoursesActions.FetchCourses());
-        console.log("Po fetchCourses");
         this.store.select('courses').subscribe(
             (coursesState: fromCourses.State) => {
                 if(coursesState.courses){
                     this.courses = coursesState.courses.slice();
-                    console.log("pobrano");
                 }
             }
         );
     }
     
     entityUp(index: number){
-        console.log("indexUp", index);
         this.courses[index].sequence = this.courses[index].sequence - 1;
         this.courses[index-1].sequence = this.courses[index-1].sequence + 1;
         let course: Draft = JSON.parse(JSON.stringify(this.courses[index]));
@@ -45,7 +42,6 @@ export class CoursesComponent implements OnInit {
     }
 
     entityDown(index: number){
-        console.log("indexDown", index);
         this.courses[index+1].sequence = this.courses[index+1].sequence - 1;
         this.courses[index].sequence = this.courses[index].sequence + 1;
         let course: Draft = JSON.parse(JSON.stringify(this.courses[index]));

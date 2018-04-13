@@ -18,10 +18,8 @@ import { SharedModule } from './../shared/shared.module';
         TagEditComponent
     ],
     imports: [
-        //FormsModule,
         SharedModule,
         CommonModule,
-        //BooksRoutingModule,
         ReactiveFormsModule,
         TagsRoutingModule
     ],

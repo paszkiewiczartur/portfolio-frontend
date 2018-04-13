@@ -28,10 +28,8 @@ export class SearchComponent implements OnInit {
             (params: Params) => {
                 this.searchText = params['searchText'].trim();   
                 
-                console.log("route.param => searchText", this.searchText);
                 if(this.searchText){
                     this.store.dispatch(new MainActions.FetchSearchData(this.searchText));
-                    console.log("po dispatch featchSearchData");
                     this.searchTextInput.nativeElement.value = this.searchText;
                 }
             }

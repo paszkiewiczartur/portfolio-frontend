@@ -29,7 +29,6 @@ export class ProjectTagsComponent implements OnInit {
     
     ngOnInit() {
         this.store.dispatch(new TagsActions.FetchTags());
-        //this.store.dispatch(new ProjectsActions.FetchProjectTags(this.entityId));
         this.store.select('projects').subscribe(
             (projectsState: fromProjects.State) => {
                 this.tagsAdded = projectsState.projectTags;

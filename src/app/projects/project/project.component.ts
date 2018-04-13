@@ -35,14 +35,6 @@ export class ProjectComponent implements OnInit {
                 this.store.dispatch(new ProjectsActions.FetchProject(this.path));
             }
         );
-        /*this.store.select('projects').subscribe(
-            (projectsState: fromProjects.State) => {
-                if(projectsState.project && !projectsState.projectTags){
-                    this.store.dispatch(new ProjectsActions.FetchProjectTags(projectsState.project.id));                
-                }
-            }
-        );*/
-
     }
     
     websiteClicked(){

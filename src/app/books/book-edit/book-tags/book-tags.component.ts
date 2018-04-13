@@ -29,7 +29,6 @@ export class BookTagsComponent implements OnInit {
     
     ngOnInit() {
         this.store.dispatch(new TagsActions.FetchTags());
-//        this.store.dispatch(new BooksActions.FetchBookTags(this.entityId));
         this.store.select('books').subscribe(
             (booksState: fromBooks.State) => {
                 this.tagsAdded = booksState.bookTags;

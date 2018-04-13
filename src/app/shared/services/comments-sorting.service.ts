@@ -6,16 +6,9 @@ export class CommentsSortService{
     
     sortComments(data: Array<Comment>){
         this.comments = data;
-        //this.deleteLinks();
         this.makeCommentsArray();
         this.sort();
         return this.comments;
-    }
-    
-    deleteLinks(){
-        for(let i=0; i<this.comments.length; i++){
-          //  delete this.comments[i]._links;    
-        }
     }
 
     makeCommentsArray(){
@@ -34,9 +27,7 @@ export class CommentsSortService{
                 //minus two to save one loop (last element cannot be a parent)
                 for(let j=this.comments.length-2; j>=0; j--){
                     if(this.comments[j].id == parent){
-//                        (function(){
-                            this.comments[j].comments.unshift(this.comments[i]);                        
-//                        })();
+                        this.comments[j].comments.unshift(this.comments[i]);                        
                         break;
                     }
                 }

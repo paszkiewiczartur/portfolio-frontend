@@ -15,6 +15,10 @@
             </span>
         </div>
         <div class="form-group">
+            <label class="control-label" for="nameLong">Book nameLong:</label><br>
+            <input class="form-control" id="nameLong" formControlName="nameLong"/>
+        </div>
+        <div class="form-group">
             <label class="control-label" for="author">Author:</label><br>
             <input class="form-control" id="author" formControlName="author"/>
             <span *ngIf="!bookForm.get('author').valid && bookForm.get('author').touched" class="help-block">
@@ -23,14 +27,14 @@
         </div>
         <div class="form-group">
             <label class="control-label" for="descriptionPl">Description Pl:</label><br>
-            <textarea class="form-control" id="descriptionPl" formControlName="descriptionPl"></textarea>
+            <textarea class="form-control" id="descriptionPl" formControlName="descriptionPl" appTextareaResize></textarea>
             <span *ngIf="!bookForm.get('descriptionPl').valid && bookForm.get('descriptionPl').touched" class="help-block">
                 This is required!
             </span>
         </div>
         <div class="form-group">
             <label class="control-label" for="descriptionEn">Description En:</label><br>
-            <textarea class="form-control" id="descriptionEn" formControlName="descriptionEn"></textarea>
+            <textarea class="form-control" id="descriptionEn" formControlName="descriptionEn" appTextareaResize></textarea>
             <span *ngIf="!bookForm.get('descriptionEn').valid && bookForm.get('descriptionEn').touched" class="help-block">
                 This is required!
             </span>

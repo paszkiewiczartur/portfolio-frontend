@@ -15,16 +15,16 @@
     <div *ngIf="!projectEdit && (projectsState | async).project">
          <div class="row">
             <div class="col-md-6">
-                <h1>{{ (projectsState | async).project.name}}</h1>
+                <h1 *ngIf="!(projectsState | async).project.nameLong; else nameLong">{{ (projectsState | async).project.name}}</h1>
+                <ng-template #nameLong>
+                    <h1>{{ (projectsState | async).project.nameLong }}</h1>
+                </ng-template>
                 <div *ngIf="isPolish(); else englishDesc">
-                    <p>
-                        {{ (projectsState | async).project.descriptionPl}}<br>
-                    </p>
+                    <p [innerHTML]="(projectsState | async).project.descriptionPl | safeHTML"></p><br>
                 </div>
                 <ng-template #englishDesc>
-                    <p>
-                        {{ (projectsState | async).project.descriptionEn}}<br>
-                    </p>
+                    <p [innerHTML]="(projectsState | async).project.descriptionEn | safeHTML"></p>
+                    <br>
                 </ng-template>
                 <div class="entity-additional">
                     <div *ngIf="(projectsState | async).project.link">

@@ -34,7 +34,6 @@ fetchComments = this.actions$
     .ofType(CommentsActions.FETCH_COMMENTS)
     .withLatestFrom(this.store.select('comments'))
     .switchMap(([action, state]) => {
-        console.log("inside FETCH_COMMENTS");
         let dataType: string = null;
         if(state.commentData.site === DataType.Project){
             dataType = 'Project?project=';
@@ -50,7 +49,6 @@ fetchComments = this.actions$
     })
     .map(
       (data) => {
-        console.log(data);
         let comments: Array<Comment> = [];
         if(data._embedded){
             let preComments: Array<any> = data._embedded.comments;
@@ -58,12 +56,9 @@ fetchComments = this.actions$
                 comments.push(preComments[x].content);
             }
             comments = this.commentsSortService.sortComments(comments);
-            console.log("po sortowaniu");
-            console.log(comments);
         } else {
             let comments = [];
         }
-        console.log("zaraz SET_COMMENTS");
         return {
             type: CommentsActions.SET_COMMENTS,
             payload: comments
@@ -80,15 +75,9 @@ leaveComment = this.actions$.ofType(CommentsActions.LEAVE_COMMENT)
     .withLatestFrom(this.store.select('main'))
     .withLatestFrom(this.store.select('comments'))
     .switchMap(([[action, state1], state2]) => {
-        console.log("SEND_COMMENT");
-        console.log(action);
-        console.log(state1);
-        console.log(state2);
         action.payload.site = DataType[state2.commentData.site];
         action.payload.entity = state2.commentData.entity;
         action.payload.entrance = state1.entrance_id;
-        console.log("before sending comment");
-        console.log(action.payload);
       return this.httpClient.post<CommentForm>('/api/comments/save', action.payload,{
                 observe: 'body',
                 responseType: 'json'
@@ -105,8 +94,6 @@ storeComment = this.actions$.ofType(CommentsActions.STORE_COMMENT)
     })
     .map(
       (data) => {
-        console.log("przyszła odpowiedź po store comment");
-        console.log(data);
         return {
             type: CommentsActions.FETCH_COMMENTS
         };
@@ -122,8 +109,6 @@ deleteComment = this.actions$.ofType(CommentsActions.DELETE_COMMENT)
     })
     .map(
       (data) => {
-        console.log("przyszła odpowiedź po delete");
-        console.log(data);
         return {
             type: CommentsActions.FETCH_COMMENTS
         };
@@ -132,8 +117,6 @@ deleteComment = this.actions$.ofType(CommentsActions.DELETE_COMMENT)
 @Effect()
 fetchComment = this.actions$.ofType(CommentsActions.FETCH_COMMENT)
     .switchMap((action: CommentsActions.FetchComment) => {
-        console.log("inside FETCH_COMMENT");
-        console.log(action.payload);
         return this.httpClient.get<any>('/api/comments/' + action.payload, {
             observe: 'body',
             responseType: 'json'
@@ -141,9 +124,6 @@ fetchComment = this.actions$.ofType(CommentsActions.FETCH_COMMENT)
     })
     .map(
       (data) => {
-        console.log("comment arrived!");
-        console.log(data);
-        console.log("zaraz SET_COMMENT");
         return {
             type: CommentsActions.SET_COMMENT,
             payload: data.content

@@ -36,14 +36,10 @@ export class EditCommentComponent implements OnInit {
             ...this.commentForm.value,
             id: this.comment.id
         }
-        console.log("this.commentForm.value");
-        console.log(this.commentForm.value);
         this.store.dispatch(new CommentsActions.StoreComment(changedComment));
-        //this.router.navigate(['/books']);
     }
 
     deleteComment(){
-        console.log("usuwanie commenta o id:", this.comment.id);
         this.store.dispatch(new CommentsActions.DeleteComment(this.comment.id));
     }
 }

@@ -34,10 +34,8 @@ export class TagEditComponent implements OnInit {
             }
         );
         if(!this.tag){
-            console.log("newTag");
             this.newTag = true;
         } else {
-            console.log("!newTag");
             this.newTag = false;
         }
         this.initForm();   

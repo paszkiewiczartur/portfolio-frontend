@@ -25,8 +25,6 @@ export function authReducer(state = initialState, action: AuthActions.AuthAction
         authType: action.payload.authType
       }
     case (AuthActions.AUTHENTICATE):
-        console.log("no nareszcie!");
-        console.log(state.principal.username, state.principal.password);
       return {
         ...state,
         authenticated: true,

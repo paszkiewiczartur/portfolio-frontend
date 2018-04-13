@@ -35,8 +35,6 @@ export class AboutComponent implements OnInit {
             site: DataType.About.toString(),
             entity: 1
         };
-        console.log("inside about.component");
-        console.log(linkRequestType);
         this.store.dispatch(new MainActions.FetchLinks(linkRequestType));        
     }
 

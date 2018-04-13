@@ -25,9 +25,6 @@ export class ProjectsStartComponent implements OnInit {
             (projectsState: fromProjects.State) => {
                 if(projectsState.projects){
                     let projects = projectsState.projects.slice();
-                    console.log("projects");
-                    console.log(projects);
-                    console.log(projectsState);
                     projects.sort(function(a, b){return 0.5 - Math.random()});
                     if(projects[0])
                         this.project1 = projects[0].image;
@@ -35,7 +32,6 @@ export class ProjectsStartComponent implements OnInit {
                         this.project2 = projects[1].image;
                     if(projects[2])
                         this.project3 = projects[2].image;
-                    console.log(this.project1);
                 }
             }
         );

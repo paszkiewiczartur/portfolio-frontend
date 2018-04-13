@@ -34,14 +34,6 @@ export class CourseComponent implements OnInit {
                 this.store.dispatch(new CoursesActions.FetchCourse(this.path));
             }
         );
-        /*this.store.select('courses').subscribe(
-            (coursesState: fromCourses.State) => {
-                if(coursesState.course && !coursesState.courseTags){
-                    this.store.dispatch(new CoursesActions.FetchCourseTags(coursesState.course.id));                
-                }
-            }
-        );*/
-
     }
     
     websiteClicked(){

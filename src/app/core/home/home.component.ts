@@ -40,8 +40,6 @@ export class HomeComponent implements OnInit {
             site: DataType.Home.toString(),
             entity: 1
         };
-        console.log("inside home.component");
-        console.log(linkRequestType);
         this.store.dispatch(new MainActions.FetchLinks(linkRequestType));        
     }
 

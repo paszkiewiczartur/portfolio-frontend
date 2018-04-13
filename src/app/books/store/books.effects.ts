@@ -3,7 +3,6 @@ import { Actions, Effect } from '@ngrx/effects';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/withLatestFrom';
 import 'rxjs/add/operator/map';
-//import 'rxjs/add/operator/of';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -35,8 +34,6 @@ export class BooksEffects {
       })
       .switchMap(
         (book) => {
-            console.log("Loguję booka");
-            console.log(book);
             let commentData: LinkRequestType = {
                 site: DataType.Book,
                 entity: book.id
@@ -64,7 +61,6 @@ export class BooksEffects {
         }
       )        
         .catch(err => {
-            console.log("ERROR!");
               return Observable.of({ type: BooksActions.FETCH_BOOK_FAIL, payload: err });
         });
     });
@@ -79,11 +75,7 @@ export class BooksEffects {
       });
     })
     .map((books) => {
-        console.log("before sorting");
-        console.log(books)
         this.entitySortService.sort(books);
-        console.log("after sorting");
-        console.log(books)
       return {
         type: BooksActions.SET_BOOKS,
         payload: books
@@ -100,7 +92,6 @@ export class BooksEffects {
       });
     })
     .map((books) => {
-        console.log("Zaraz Fetch_Books");
       return {
         type: BooksActions.FETCH_BOOKS
       };
@@ -110,24 +101,15 @@ export class BooksEffects {
   storeBook = this.actions$
     .ofType(BooksActions.STORE_BOOK)
     .switchMap((action: BooksActions.StoreBook) => {
-        console.log("prepare to send Book");
-        console.log(action.payload);
       return this.httpClient.post('/api/books', action.payload, {
         observe: 'body',
         responseType: 'json'
       })
     })
     .map((data) => {
-        console.log("data after post book:");
-        console.log(data);
       return {
-            type: BooksActions.FETCH_BOOKS
+                type: BooksActions.FETCH_BOOKS
             };
-        /*{
-            type: MainActions.SET_COMMENTS,
-            payload: new Array()
-        }
-      ];*/
     });
 
 @Effect()
@@ -140,11 +122,9 @@ export class BooksEffects {
       })
     })
     .switchMap((data) => {
-        console.log("data after delete book:");
-        console.log(data);
       return [
         {
-        type: BooksActions.FETCH_BOOKS
+            type: BooksActions.FETCH_BOOKS
         },
         {
             type: CommentsActions.SET_COMMENTS,
@@ -163,8 +143,6 @@ fetchBookTags = this.actions$
       })
     })
     .map((data) => {
-        console.log("data after fetch book tags:");
-        console.log(data);
       return {
             type: BooksActions.SET_BOOK_TAGS,
             payload: data._embedded.tags

@@ -22,7 +22,6 @@ const initialState: State = {
 export function tagsReducer(state = initialState, action: TagsActions.TagsActions) {
   switch (action.type) {
     case (TagsActions.SET_TAGS):
-        console.log("inside SET_TAGS");
       return {
         ...state,
         tags: action.payload

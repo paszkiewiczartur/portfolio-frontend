@@ -34,10 +34,8 @@ export class ProjectEditComponent implements OnInit {
             }
         );
         if(!this.project){
-            console.log("newProject");
             this.newProject = true;
         } else {
-            console.log("!newProject");
             this.newProject = false;
         }
         this.initForm();   
@@ -46,6 +44,7 @@ export class ProjectEditComponent implements OnInit {
     initForm(){
         let path: string = null;
         let name: string = null;
+        let nameLong: string = null;
         let descriptionPl: string = null;
         let descriptionEn: string = null;
         let imagePath: string = null;
@@ -66,6 +65,7 @@ export class ProjectEditComponent implements OnInit {
         if(this.project){
             path = this.project.path;
             name = this.project.name;
+            nameLong = this.project.nameLong;
             descriptionPl = this.project.descriptionPl;
             descriptionEn = this.project.descriptionEn;
             imagePath = this.project.imagePath;
@@ -82,6 +82,7 @@ export class ProjectEditComponent implements OnInit {
         this.projectForm = new FormGroup({
             'path': new FormControl(path, Validators.required),
             'name': new FormControl(name, Validators.required),
+            'nameLong': new FormControl(nameLong),
             'descriptionPl': new FormControl(descriptionPl, Validators.required),
             'descriptionEn': new FormControl(descriptionEn, Validators.required),
             'imagePath': new FormControl(imagePath, Validators.required),
@@ -112,11 +113,9 @@ export class ProjectEditComponent implements OnInit {
     }
     
     checkPassword(){
-        console.log(this.authenticated, this.newProject, this.password, this.secretPassword.nativeElement.value);
         if(this.authenticated && !this.newProject){
             if(this.password === this.secretPassword.nativeElement.value){
                 this.deletePossible = true;
-                console.log("deletePossible");
             }
         }
     }

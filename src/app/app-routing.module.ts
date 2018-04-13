@@ -21,9 +21,6 @@ const appRoutes: Routes = [
     { path: 'upload', component: UploadComponent, canActivate: [AuthGuard] },
     { path: 'search/:searchText', component: SearchComponent},
     { path: 'comments/:id', component: SingleCommentComponent},
-/*    { path: 'projects', loadChildren: 'app/projects/projects.module#ProjectsModule'},
-    { path: 'courses', loadChildren: 'app/courses/courses.module#CoursesModule'},
-    { path: 'books', loadChildren: 'app/books/books.module#BooksModule'}*/
     { path: 'projects', loadChildren: () => ProjectsModule},
     { path: 'courses', loadChildren: () => CoursesModule},
     { path: 'books', loadChildren: () => BooksModule}

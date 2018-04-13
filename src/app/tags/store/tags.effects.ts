@@ -35,8 +35,6 @@ fetchTag = this.actions$
       })
       .switchMap(
         (tag) => {
-            console.log("Loguję tag");
-            console.log(tag);
           return [{
                 type: TagsActions.SET_TAG,
                 payload: tag
@@ -55,7 +53,6 @@ fetchTag = this.actions$
             ];
         }
       ).catch(err => {
-            console.log("FETCH_TAG_FAIL ERROR!");
               return Observable.of({type: TagsActions.FETCH_TAG_FAIL, payload: err});
         });
     });
@@ -65,7 +62,6 @@ fetchTag = this.actions$
   fetchTags = this.actions$
     .ofType(TagsActions.FETCH_TAGS)
     .switchMap((action: TagsActions.FetchTags) => {
-        console.log("inside fetch tags");
       return this.httpClient.get<Array<Tag>>('/api/getTags', {
         observe: 'body',
         responseType: 'json'
@@ -73,8 +69,6 @@ fetchTag = this.actions$
     })
     .map(
       (tags) => {
-      console.log("przyszły tagi");
-      console.log(tags)
         return {
           type: TagsActions.SET_TAGS,
           payload: tags
@@ -86,16 +80,12 @@ fetchTag = this.actions$
   storeTag = this.actions$
     .ofType(TagsActions.STORE_TAG)
     .switchMap((action: TagsActions.StoreTag) => {
-        console.log("prepare to send tag");
-        console.log(action.payload);
       return this.httpClient.post('/api/tags', action.payload, {
         observe: 'body',
         responseType: 'json'
       })
     })
     .map((data) => {
-        console.log("data after post tag:");
-        console.log(data);
       return {
             type: TagsActions.FETCH_TAGS
         };
@@ -111,8 +101,6 @@ fetchTag = this.actions$
       })
     })
     .map((data) => {
-        console.log("data after delete tag:");
-        console.log(data);
       return{
             type: TagsActions.FETCH_TAGS
         };
@@ -141,8 +129,6 @@ fetchTagContent = this.actions$
     
         return Observable.forkJoin(observables)
             .switchMap((data: any) => {
-        console.log("przyszedł TAG_CONTENT");
-        console.log(data);
         let tagContent:{projects:Array<Project>; courses:Array<Course>; books:Array<Book>;} = {
             projects: null,
             courses: null,

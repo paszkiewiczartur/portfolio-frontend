@@ -42,13 +42,10 @@ export class TagsComponent implements OnInit {
 
     setClasses(amount: number) {
         if(amount < this.max/3){
-//            return "label-default";
             return "label-light";
         } else if (amount < 2*this.max/3){
-//            return "label-info";
             return "label-mid";
         } else {
-//            return "label-danger";
             return "label-dark";
         }
     }

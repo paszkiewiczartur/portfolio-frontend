@@ -38,8 +38,6 @@ export class ContactComponent implements OnInit {
             site: DataType.Contact.toString(),
             entity: 1
         };
-        console.log("inside contact.component");
-        console.log(linkRequestType);
         this.store.dispatch(new MainActions.FetchLinks(linkRequestType));        
     }
     
